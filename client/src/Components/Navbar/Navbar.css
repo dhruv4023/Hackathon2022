@@ -1,0 +1,61 @@
+
+.title_container {
+  background-color: rgb(223, 221, 221);
+  padding: 0.5rem;
+  display: flex;
+  height: 7rem;
+}
+.title_container2 {
+  display: flex;
+  flex-grow: 1;
+  text-decoration: none;
+}
+.title_navbar {
+  margin: auto 2rem;
+  font-size: 2rem;
+  color: black;
+  transition: all 1s;
+}
+.title_navbar:hover {
+  color: rgb(53, 53, 53);
+  text-shadow: 1px 1px 1px blue;
+}
+.Navigation_List_Navbar {
+  position: sticky;
+  background-color: rgb(99, 45, 166);
+  display: flex;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  height: 2.8rem;
+  box-shadow: 2px 2px 2px blue,-2px 2px 2px blue;
+}
+.Item_Navbar {
+  margin: auto 0;
+  border-radius: 20rem;
+  color: whitesmoke;
+  text-decoration: none;
+  font-weight: bolder;
+  padding: 0.5rem;
+  color: rgb(255, 255, 255);
+  transition: all 1s;
+  font-size: 1rem;
+}
+.Item_Navbar:hover {
+  background-color: rgba(116, 116, 236, 0.393);
+  color: rgba(237, 249, 105, 0.949);
+  border-radius: 0.2rem;
+}
+.Item_Navbar.active {
+  color: rgb(108, 224, 250);
+  border-radius: 0.2rem;
+  background-color: rgba(127, 255, 212, 0.236);
+}
+.Auth_Conatiner_navbar{
+  margin: auto 0.5rem;
+}
+.sign_in_Navbar {
+  cursor: pointer;
+}
+.sign_in_Navbar:hover {
+ box-shadow: 2px ; 
+}

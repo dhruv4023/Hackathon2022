@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+.container_app1 {
+  /* border: 2px solid; */
+  height: calc(100vh - 7rem - 2.8rem);
+  overflow-x: auto;
+  background-color: rgba(243, 215, 162, 0.832);
+}
+.container_app2 {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  /* height: calc(100vh - 2.8rem); */
+  min-height: calc(100vh - 7rem - 2.8rem - 0.6rem);
+  width: 80rem;
+  margin: 0.3rem auto;
+  border: 3px solid rgba(0, 0, 0, 0.559);
+}
+
+@media (max-width: 1250px){
+  .container_app2{
+    width: calc(100vw - 0.6rem);
+  }
+}
