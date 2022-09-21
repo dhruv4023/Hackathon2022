@@ -1,0 +1,31 @@
+.cont_staffN {
+  border: 2px solid;
+  height: 15rem;
+  width: 15rem;
+  border-radius: 1.5rem;
+  margin: 0.3rem;
+  box-shadow: 1px 1px 5px grey, -1px 1px 5px grey, 1px -1px 5px grey,
+    -1px -1px 5px grey;
+}
+
+.img_staffN {
+  border-radius: 100%;
+  height: 50%;
+  width: 50%;
+  margin: 0.2rem auto;
+  display: flex;
+}
+
+.img_tag {
+  border-radius: 100%;
+  margin: auto;
+}
+.details_staffN {
+  /* border: 1px so5id grey
+  ; */
+  height: 45%;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 500;
+}

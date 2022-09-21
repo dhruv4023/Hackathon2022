@@ -12,11 +12,13 @@ app.use(Express.static('public'))
 app.use(cors());
 
 import userRoutes from './routes/users.js'
+import staffRoutes from './routes/staff.js'
 
 app.get('/', (req, res) => {
     res.send("Server Started");
 })
 app.use('/user',userRoutes)
+app.use('/staff',staffRoutes)
 
 app.use(bodyParser.json());
 

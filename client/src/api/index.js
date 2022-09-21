@@ -17,3 +17,9 @@ export const postQAComment = (CommentData) => API.post(`/comments/post`, Comment
 export const deleteQAComment = (id) => API.delete(`/comments/delete/${id}`)
 export const editQAComment = (id, commentBody) => API.patch(`/comments/edit/${id}`, { commentBody })
 export const getAllcomments = () => API.get('/comments/get');
+
+
+export const postStaff = (StaffData) => API.post(`/staff/post`, StaffData)
+export const deleteStaff = (id) => API.delete(`/staff/delete/${id}`)
+export const editStaff = (id, commentBody) => API.patch(`/staff/edit/${id}`, { commentBody })
+export const getAllStaffDetails = () => API.get('/staff/get');

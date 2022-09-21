@@ -1,0 +1,41 @@
+.dought_cointaner
+{
+    border: 2px solid red;
+    width: 71%;
+    height: 99%;
+    margin-left: 14%;
+}
+
+
+
+.doubt_DoubtPage
+{
+    position: -webkit-sticky; 
+  position: sticky;
+  top: 0;
+    font-size: 2rem;
+    border: 2px solid;
+    background-color: darkgrey;
+    
+}
+.comments_list_doubtPage{
+    border: 2px solid;
+    background-color: rgb(241, 248, 221);
+    height: 86%;
+}
+.comments_doubtpage{
+
+    border: 2px solid;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    height: 5rem;
+    margin-right: 1rem;
+}
+.btn_doughtPage
+{
+
+}
+
+.button{
+ margin-left: 100%;
+}

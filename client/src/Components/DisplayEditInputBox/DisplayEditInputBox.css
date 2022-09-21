@@ -1,0 +1,39 @@
+.cont_DisplayEditInputBox {
+  /* border: 1px solid; */
+  width: 100%;
+  font-size: large;
+  color: black;
+  position: relative;
+}
+.text_DisplayEditInputBox {
+  /* border: 1px solid; */
+  display: flex;
+  padding: 0.35rem;
+}
+.Ebtn_DisplayEditInputBox,
+.Del_DisplayEditInputBox,
+.Done_DisplayEditInputBox {
+  padding-left: 0.7rem;
+  color: grey;
+  cursor: pointer;
+  margin: auto 0;
+}
+.Ebtn_DisplayEditInputBox:hover,
+.Done_DisplayEditInputBox:hover {
+  color: blue;
+}
+.Del_DisplayEditInputBox:hover {
+  color: red;
+}
+.ibox_DisplayEditInputBox {
+  font-size: large;
+  width: 100%;
+  color: black;
+  padding: 0.4rem;
+}
+.Done_DisplayEditInputBox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  
+}

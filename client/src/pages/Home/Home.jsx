@@ -3,9 +3,7 @@ import "./Home.css";
 function Home() {
   return (
     <div className="container_app1">
-      <div className="container_app2">
-        Home
-      </div>
+      <div className="container_app2">Home</div>
     </div>
   );
 }

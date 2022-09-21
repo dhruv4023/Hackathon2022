@@ -1,0 +1,65 @@
+.title_askBtn_forum {
+    display: flex;
+    border: 2px solid;
+    height: 4rem;
+}
+
+.title_Forum {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 2.5rem;
+}
+
+.ask_btn_forum {
+    margin: auto 5px;
+    height: 3rem;
+    border: 3px solid;
+    text-align: center;
+    cursor: pointer;
+    width: 10rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: black;
+    color: white;
+    transition: all 1s;
+    font-weight: bolder;
+}
+
+.ask_btn_forum:hover {
+    color: rgb(132, 156, 159);
+}
+
+.doubts_list_container_forum {
+    border: 2px solid;
+    height: calc(100vh - 5rem - 4rem);
+}
+
+.list_forum {
+    border: 1px solid black;
+    height: 100%;
+    width: 70%;
+    margin: auto;
+    background-color: rgb(214, 223, 233);
+}
+
+.doubt_comment_num_forum {
+    border: 2px solid;
+    margin: 8px 2px;
+    display: flex;
+    border-radius: 10px;
+    background-color: rgb(247, 252, 244);
+}
+.comments_num_forum{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+}
+.comments_num_forum i{
+    margin: auto;
+}
+.doubt_forum{
+    margin: auto 0;
+    padding: 1rem;
+}
