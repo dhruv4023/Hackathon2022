@@ -1,65 +1,76 @@
 .title_askBtn_forum {
-    display: flex;
-    border: 2px solid;
-    height: 4rem;
+  display: flex;
+  height: 4rem;
+  position: relative;
 }
 
 .title_Forum {
-    flex-grow: 1;
-    text-align: center;
-    font-weight: bold;
-    text-decoration: underline;
-    font-size: 2.5rem;
+  flex-grow: 1;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 2.5rem;
 }
 
 .ask_btn_forum {
-    margin: auto 5px;
-    height: 3rem;
-    border: 3px solid;
-    text-align: center;
-    cursor: pointer;
-    width: 10rem;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    background-color: black;
-    color: white;
-    transition: all 1s;
-    font-weight: bolder;
+  margin: auto 5px;
+  height: 3rem;
+  border: 3px solid;
+  text-align: center;
+  cursor: pointer;
+  width: 10rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: black;
+  color: white;
+  transition: all 1s;
+  font-weight: bolder;
 }
 
 .ask_btn_forum:hover {
-    color: rgb(132, 156, 159);
+  color: rgb(132, 156, 159);
 }
 
 .doubts_list_container_forum {
-    border: 2px solid;
-    height: calc(100vh - 5rem - 4rem);
+  height: calc(100vh - 5rem - 4rem);
+  display: flex;
+  flex-direction: column;
 }
 
 .list_forum {
-    border: 1px solid black;
-    height: 100%;
-    width: 70%;
-    margin: auto;
-    background-color: rgb(214, 223, 233);
+  height: calc(100% - 3rem);
+  width: 100%;
+  margin: auto;
+  overflow-x: auto;
+  border-top: 1px solid rgba(128, 128, 128, 0.277);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.277);
 }
 
-.doubt_comment_num_forum {
-    border: 2px solid;
-    margin: 8px 2px;
-    display: flex;
-    border-radius: 10px;
-    background-color: rgb(247, 252, 244);
+
+.ask_doubt_cont_forum {
+  text-align: center;
+  padding: 0.1rem;
+  position: relative;
 }
-.comments_num_forum{
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 0.5rem;
+.text_forum {
+  font-size: large;
+  width: 100%;
+  color: black;
+  padding: 0.4rem;
+  background-color: rgba(128, 128, 128, 0.101);
+  border: 1px solid rgba(101, 101, 101, 0.49);
+  border-radius: 0.5rem;
 }
-.comments_num_forum i{
-    margin: auto;
+.Done_forum {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  cursor: pointer;
+  transition: all 10ms;
+  border-radius: 1rem;
+  font-weight: bolder;
+  background-color: whitesmoke;
 }
-.doubt_forum{
-    margin: auto 0;
-    padding: 1rem;
+.Done_forum:hover {
+  color: blue;
 }

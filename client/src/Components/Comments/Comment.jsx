@@ -6,12 +6,13 @@ import DisplayComments from "./DisplayComments.jsx";
 import { postComment } from "../../actions/comments";
 
 import "./comment.css";
+import { ImCheckmark } from "react-icons/im";
 
-export default function Comment({ videoId }) {
+export default function Comment({ dataId }) {
   const [comment, setComment] = useState("");
   const currentUser = useSelector((state) => state.currentUserReducer);
   const commentsList = useSelector((state) => state.commentReducer);
-
+  console.log(currentUser);
   // console.log(commentsList);
 
   const checkAuth = () => {
@@ -22,14 +23,14 @@ export default function Comment({ videoId }) {
 
   const dispatch = useDispatch();
 
-  const handleSubmitComment = (e) => {
-    e.preventDefault();
+  const handleSubmitComment = () => {
+  
     if (!comment) {
       alert("type your comment");
     } else {
       dispatch(
         postComment({
-          videoId: videoId,
+          dataId: dataId,
           userId: currentUser?.result?._id,
           commentBody: comment,
           userCommented: currentUser?.result.name,
@@ -40,11 +41,7 @@ export default function Comment({ videoId }) {
   };
   return (
     <>
-      <form
-        onSubmit={handleSubmitComment}
-        onClick={checkAuth}
-        className="commentSubForm"
-      >
+      <div onClick={checkAuth} className="commentSubForm">
         <input
           type="text"
           placeholder="add Comment... "
@@ -53,16 +50,17 @@ export default function Comment({ videoId }) {
           value={comment}
           disabled={currentUser == null}
         />
-        <input
-          type="submit"
+        <ImCheckmark
+          onClick={() => handleSubmitComment()}
           disabled={currentUser == null}
-          className="commentAddBtn"
-          value="add"
+          size={30}
+          className="Done_Comment"
         />
-      </form>
+      </div>
       <div className="displayComment_commentsPage">
         {commentsList?.data
-          ?.filter((q) => videoId === q?.videoId).reverse()
+          ?.filter((q) => dataId === q?.dataId)
+          .reverse()
           .map((m) => (
             // console.log(m)
             <DisplayComments

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { BiEdit } from "react-icons/bi";
 import { BsFillTrashFill } from "react-icons/bs";
-import { MdDoneOutline } from "react-icons/md";
+import { ImCheckmark } from "react-icons/im";
 import "./DisplayEditInputBox.css";
 function DisplayEditInputBox({ textTodisplay, adminUser }) {
   const [edit, setEdit] = useState(false);
@@ -23,8 +23,8 @@ function DisplayEditInputBox({ textTodisplay, adminUser }) {
             value={val}
             type="text"
           />
-          <b className="Done_DisplayEditInputBox" onClick={() => handleSave()}>
-            <MdDoneOutline />
+          <b className="Done_app" onClick={() => handleSave()}>
+            <ImCheckmark size={20} />
           </b>
         </>
       ) : (
@@ -32,14 +32,11 @@ function DisplayEditInputBox({ textTodisplay, adminUser }) {
           <div>{textTodisplay}</div>
           {adminUser && (
             <>
-              <b
-                className="Ebtn_DisplayEditInputBox"
-                onClick={() => handleEdit()}
-              >
+              <b className="Ebtn_app" onClick={() => handleEdit()}>
                 {" "}
                 Edit <BiEdit />
               </b>
-              <b className="Del_DisplayEditInputBox">
+              <b className="Del_app">
                 {" "}
                 Delete <BsFillTrashFill />
               </b>
@@ -50,5 +47,4 @@ function DisplayEditInputBox({ textTodisplay, adminUser }) {
     </div>
   );
 }
-
 export default DisplayEditInputBox;

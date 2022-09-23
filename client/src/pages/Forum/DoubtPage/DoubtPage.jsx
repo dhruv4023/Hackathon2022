@@ -1,32 +1,23 @@
-import React from 'react'
-import './DoughtPage.css'
+import React from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import Comment from "../../../Components/Comments/Comment";
+import "./DoughtPage.css";
 
 function DoubtPage() {
-    return (
-        <div className='container_app'>
-            <div className="container2_app">
-                <div className='dought_cointaner'>
-                <div className="doubt_DoubtPage">
-                    que title
-                </div>
-                <div className="comments_list_doubtPage">
-                    <div className="comments_doubtpage">
-                        <div className='btn_doughtPage'>
-                        ans1hdkjfhsjhfjsdghfgjhdkfhgdhfgkjhdfjghdjfghjdfhgjsdfhgjhdsflghdflghdkjfghkdhfgkhdf
-                       
-                        </div>
-                    </div>
-                    <div className="comments_doubtpage">
-                    <div className='btn_doughtPage'>
-                        ans2sghsdkjfghdfhgjkdhfg hdfjkghjdfhgjdfh gjkfhgjkdfh gkjh dfkjghdjkfgh dfhgkjdfhgkjsdfhgkjdsh fgkhdfkgjh dfkjgh djfghkdfhgkjdhf kghdfk h k
-                        </div>
-                    </div>
-                </div>
-                    <button type="button">send</button>
-                </div>
-            </div>
-        </div>
-    )
+  const { fid } = useParams();
+  const doubtData = useSelector((s) => s.doubtReducer)?.data?.filter(
+    (q) => q?._id === fid
+  )[0];
+  return (
+    <div className="container_app1">
+      <div className="container_app2">
+        {" "}
+        <div className="doubt_title_DoubtPage">{doubtData?.doubtBody}</div>
+        <Comment dataId={fid} />
+      </div>
+    </div>
+  );
 }
 
-export default DoubtPage
+export default DoubtPage;

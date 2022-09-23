@@ -41,7 +41,7 @@ export default function DisplayComments({ cmtId, cmtBody, cmtOn, userId,usercmt 
   };
 
   return (
-    <>
+    <div className="cmtCont">
       {edit === false ? (
         <p className="commentBdy">{cmtBody}</p>
       ) : (
@@ -65,6 +65,6 @@ export default function DisplayComments({ cmtId, cmtBody, cmtOn, userId,usercmt 
           <i onClick={() => handleDel(cmtId)}>delete</i>
         </p>
       )}
-    </>
+    </div>
   );
 }

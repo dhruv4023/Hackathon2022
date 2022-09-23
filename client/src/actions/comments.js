@@ -1,21 +1,23 @@
 import * as api from '../api'
+import { getAllDoubt } from './doubt';
 
 
-export const postQAComment = (commentData) => async (dispatch) => {
+export const postComment = (commentData) => async (dispatch) => {
     try {
-        const { data } = await api.postQAComment(commentData);
+        const { data } = await api.postComment(commentData);
         dispatch({ type: "POST_COMMENT", payload: data });
         dispatch(getAllcomments())
+        dispatch(getAllDoubt())
     } catch (error) {
         console.log(error);
     }
 }
 
-export const editQAComment = (commentData) => async (dispatch) => {
+export const editComment = (commentData) => async (dispatch) => {
     try {
         const { id, commentBody } = commentData;
         // console.log(id, commentBody)
-        const { data } = await api.editQAComment(id, commentBody);
+        const { data } = await api.editComment(id, commentBody);
         dispatch({ type: 'POST_COMMENT', payload: data })
         dispatch(getAllcomments())
     } catch (error) {
@@ -33,10 +35,10 @@ export const getAllcomments = () => async (dispatch) => {
     }
 }
 
-export const deleteQAComment = (id) => async (dispatch) => {
+export const deleteComment = (id) => async (dispatch) => {
     try {
         console.log(id)
-        await api.deleteQAComment(id)
+        await api.deleteComment(id)
         dispatch(getAllcomments())
     } catch (error) {
         console.log(error)

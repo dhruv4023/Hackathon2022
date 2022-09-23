@@ -29,3 +29,11 @@
   text-align: center;
   font-weight: 500;
 }
+.Del_staffN{
+  right: 0;
+  color: grey;
+  cursor: pointer;
+}
+.Del_staffN:hover{
+  color: red;
+}

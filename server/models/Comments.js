@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
-    videoId: String,
+    dataId: String,
     userId: String,
     commentBody: String,
     userCommented: String,

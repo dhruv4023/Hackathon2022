@@ -3,11 +3,3 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.heding_staffDetails {
-  text-shadow: 1px 1px 1px grey;
-  font-size: 2rem;
-  text-align: center;
-  box-shadow: 1px 2px rgba(128, 128, 128, 0.551);
-  margin: 0.7rem;
-  margin-top: 0;
-}

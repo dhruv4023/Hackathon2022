@@ -2,6 +2,7 @@
   display: flex;
   width: 70%;
   /* visibility: ; */
+  margin: 0.5rem;
 }
 
 .commentIBox {
@@ -10,27 +11,16 @@
   padding-left: 2%;
   background-color: transparent;
   border: 0;
-  color: wheat;
+  font-weight: bolder;
+  color: black;
   border-bottom: 2px solid grey;
 }
-
-.commentAddBtn:hover {
-    border: 2px solid rgb(64,64,64,0.05);
-    border-bottom: 2px solid rgb(64,64,64);
-    background-color: rgba(240, 248, 255, 0.05);
-}
-.commentAddBtn {
-  cursor: pointer;
-  border: 2px solid transparent;
-  border-bottom: 2px solid rgb(64, 64, 64);
-  background-color: transparent;
-  color: aliceblue;
-  font-size: large;
-  width: 20%;
+.Done_Comment:hover{
+  color: blue;
 }
 
 .userCommented {
-  color: rgb(50, 50, 50);
+  color: rgb(27, 14, 14);
   margin: 0;
 }
 
@@ -43,16 +33,25 @@
 }
 
 .commentBdy {
-  color: rgb(197, 197, 197);
+  font-weight: bolder;
+  color: rgb(17, 17, 17);
   margin: 0;
   margin-top: 0.5rem;
 }
 
 .cmtCont {
-  display: flex;
-  width: 70%;
-  border: 1px solid;
+  padding: 0.2rem;
+  border: 2px solid rgba(255, 127, 80, 0.193);
+  margin: 0.7rem 0.5rem;
+  border-radius: 0.5rem;
+  background-color: whitesmoke;
 }
 .displayComment_commentsPage {
+  background-color: rgba(127, 255, 212, 0.2);
   padding: 1rem;
+  overflow-x: auto;
+  border-bottom: 1px solid grey;
+  border-top: 1px solid grey;
+  border-radius: 1rem;
+  height: 33.5rem;
 }

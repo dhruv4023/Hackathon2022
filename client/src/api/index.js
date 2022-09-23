@@ -13,10 +13,16 @@ export const login = (authData) => API.post('/user/login', authData);
 
 
 
-export const postQAComment = (CommentData) => API.post(`/comments/post`, CommentData)
-export const deleteQAComment = (id) => API.delete(`/comments/delete/${id}`)
-export const editQAComment = (id, commentBody) => API.patch(`/comments/edit/${id}`, { commentBody })
+export const postComment = (CommentData) => API.post(`/comments/post`, CommentData)
+export const deleteComment = (id) => API.delete(`/comments/delete/${id}`)
+export const editComment = (id, commentBody) => API.patch(`/comments/edit/${id}`, { commentBody })
 export const getAllcomments = () => API.get('/comments/get');
+
+
+export const postDoubt = (doubtData) => API.post(`/doubt/post`, doubtData)
+export const deleteDoubt = (id) => API.delete(`/doubt/delete/${id}`)
+export const editDoubt = (id,doubtBody) => API.patch(`/doubt/edit/${id}`, {doubtBody })
+export const getAllDoubt = () => API.get('/doubt/get');
 
 
 export const postStaff = (StaffData) => API.post(`/staff/post`, StaffData)

@@ -18,7 +18,7 @@ export default function Navbar() {
 
   const currentUser = useSelector((s) => s.currentUserReducer)?.result;
 
-  console.log(currentUser);
+  // console.log(currentUser);
   const [AuthBtn, setAuthBtn] = useState(false);
   useEffect(() => {
     function start() {
@@ -34,14 +34,14 @@ export default function Navbar() {
     const Email = response?.profileObj.email;
     const name = response?.profileObj.name;
     // console.log(Email, name);
-    dispatch(login({ email: Email }));
+    dispatch(login({ email: Email, name: name }));
     // setLoginPage(false);
   };
   const onFailure = (response) => {
     console.log("FAILED", response);
   };
   const logTmp = () => {
-    dispatch(login({ email: "abzxy50312@gmail.com" }));
+    dispatch(login({ email: "abzxy50312@gmail.com", name: "abz" }));
     alert("Login Successfully");
   };
   const onLogoutSuccess = () => {

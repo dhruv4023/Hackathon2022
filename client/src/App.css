@@ -3,7 +3,7 @@
 }
 .container_app1 {
   /* border: 2px solid; */
-  height: calc(100vh - 7rem - 2.8rem);
+  height: calc(100vh - 2.8rem);
   overflow-x: auto;
   background-color: rgba(243, 215, 162, 0.832);
 }
@@ -11,15 +11,56 @@
   background-color: white;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  /* height: calc(100vh - 2.8rem); */
-  min-height: calc(100vh - 7rem - 2.8rem - 0.6rem);
+  min-height: calc(100vh - 2.8rem - 0.6rem);
+  /* overflow-y: auto; */
+  /* min-height: calc(100vh - 7rem - 2.8rem - 0.6rem); */
   width: 80rem;
   margin: 0.3rem auto;
   border: 3px solid rgba(0, 0, 0, 0.559);
 }
 
-@media (max-width: 1250px){
-  .container_app2{
+.add_new_btn {
+  position: absolute;
+  font-size: 1rem;
+  background-color: black;
+  color: white;
+  border: 2px solid;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.add_new_btn:hover {
+  color: orange;
+}
+.heding_App {
+  position: relative;
+  text-shadow: 1px 2px 1px grey;
+  font-size: 2rem;
+  text-align: center;
+  box-shadow: 1px 1px rgba(128, 128, 128, 0.551);
+  margin: 0.7rem;
+  margin-top: 0;
+}
+.edit_Btn_app{
+  bottom: 0;
+}
+.edit_Btn_app,
+.del_Btn_app {
+  right: 0;
+  color: grey;
+}
+.del_Btn_app:hover {
+  color: red;
+}
+.edit_Btn_app:hover {
+  color: blue;
+}
+
+/***************************/
+@media (max-width: 1250px) {
+  .container_app2 {
     width: calc(100vw - 0.6rem);
   }
 }

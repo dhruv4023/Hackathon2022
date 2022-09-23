@@ -2,15 +2,15 @@ import jwt from "jsonwebtoken";
 import users from "../models/auth.js";
 
 export const login = async (req, res) => {
-  const { email } = req.body;
-  console.log(req.body)
-    try {
+  const { email, name } = req.body;
+  console.log(req.body);
+  try {
     const existinguser = await users.findOne({ email });
     if (!existinguser) {
       try {
-        const newUser = await users.create({ email });
+        const newUser = await users.create({ email, name });
         const token = jwt.sign(
-          { email: newUser.email, id: newUser._id },
+          { email: newUser.email, name: newUser.name, id: newUser._id },
           process.env.JWT_SECRET,
           { expiresIn: "1h" }
         );
