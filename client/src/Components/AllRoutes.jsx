@@ -11,7 +11,7 @@ import StaffDetails from "../pages/StaffDetails/StaffDetails";
 import AddData from "./AddData/AddData";
 
 function AllRoutes() {
-  const [AddserviceData, setAddserviceData] = useState(true);
+  const [AddserviceData, setAddserviceData] = useState(false);
   const [staffAddData, setStaffAddData] = useState(false);
   return (
     <>

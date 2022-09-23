@@ -8,7 +8,7 @@ function AddData({
   AddserviceData,
   setAddserviceData,
 }) {
-  console.log(AddserviceData)
+  // console.log(AddserviceData)
   return (
     <>
       {staffAddData && <AddStaffData setStaffAddData={setStaffAddData} />}

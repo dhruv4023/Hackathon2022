@@ -24,7 +24,7 @@ export const editDoubt = (doubtData) => async (dispatch) => {
 export const getAllDoubt = () => async (dispatch) => {
     try {
         const { data } = await api.getAllDoubt()
-        console.log(data)
+        // console.log(data)
         dispatch({ type: 'FETCH_ALL_DOUBTS', payload: data })
     } catch (error) {
         console.log(error)

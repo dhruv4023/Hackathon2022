@@ -3,16 +3,29 @@ import { useState } from "react";
 import { BiEdit } from "react-icons/bi";
 import { BsFillTrashFill } from "react-icons/bs";
 import { ImCheckmark } from "react-icons/im";
+import { useDispatch } from "react-redux";
+import { editService } from "../../actions/service";
 import "./DisplayEditInputBox.css";
-function DisplayEditInputBox({ textTodisplay, adminUser }) {
-  const [edit, setEdit] = useState(false);
-  const [val, setVal] = useState(textTodisplay);
+function DisplayEditInputBox({ Sid, textTodisplay, adminUser }) {
+  const dispatch = useDispatch();
+  const [val, setVal] = useState("");
+
   const handleEdit = () => {
     setEdit(true);
   };
-  const handleSave = () => {
+  const handleSave = (operation) => {
     setEdit(false);
+    dispatch(editService({ id: Sid, serviceBody: { data: val, operation: operation } }));
   };
+  const handleDelReqDoc = (delItem) => {
+    dispatch(
+      editService({
+        id: Sid,
+        serviceBody: { data: delItem, operation: "del" },
+      })
+    );
+  };
+  const [edit, setEdit] = useState(false);
   return (
     <div className="cont_DisplayEditInputBox">
       {edit ? (
@@ -23,20 +36,29 @@ function DisplayEditInputBox({ textTodisplay, adminUser }) {
             value={val}
             type="text"
           />
-          <b className="Done_app" onClick={() => handleSave()}>
+          <b className="Done_app" onClick={() => handleSave(textTodisplay)}>
             <ImCheckmark size={20} />
           </b>
         </>
       ) : (
         <div className="text_DisplayEditInputBox">
-          <div>{textTodisplay}</div>
+          <li>{textTodisplay}</li>
           {adminUser && (
             <>
-              <b className="Ebtn_app" onClick={() => handleEdit()}>
+              <b
+                className="Ebtn_app"
+                onClick={() => {
+                  handleEdit();
+                  setVal(textTodisplay);
+                }}
+              >
                 {" "}
                 Edit <BiEdit />
               </b>
-              <b className="Del_app">
+              <b
+                onClick={() => handleDelReqDoc(textTodisplay)}
+                className="Del_app"
+              >
                 {" "}
                 Delete <BsFillTrashFill />
               </b>

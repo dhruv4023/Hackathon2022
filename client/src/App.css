@@ -22,9 +22,9 @@
 .add_new_btn {
   position: absolute;
   font-size: 1rem;
-  background-color: black;
-  color: white;
-  border: 2px solid;
+  /* background-color: black; */
+  color: black;
+  border: 2px solid transparent;
   padding: 0.5rem;
   border-radius: 2rem;
   top: 0;
@@ -43,7 +43,7 @@
   margin: 0.7rem;
   margin-top: 0;
 }
-.edit_Btn_app{
+.edit_Btn_app {
   bottom: 0;
 }
 .edit_Btn_app,
@@ -63,4 +63,17 @@
   .container_app2 {
     width: calc(100vw - 0.6rem);
   }
+}
+
+/***************/
+
+
+input {
+  border: 0;
+  border-radius: 0.3rem;
+  outline: 0;
+  padding: 0.3rem 0.2rem;
+  border-bottom: 2px solid #2db0e8;
+  box-shadow: none;
+  color: #111;
 }

@@ -1,24 +1,19 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { postStaff } from "../../actions/staff";
+import { postService } from "../../actions/service";
 function AddServices({ setAddserviceData }) {
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
-  const [uploading, setUploading] = useState(false);
+  const [serviceNAme, setserviceNAme] = useState();
 
-  const singleFileOptions = {
-    onUploadProgress: (progressEvent) => {
-      const { loaded, total } = progressEvent;
-      const percentage = Math.floor(((loaded / 1000) * 100) / (total / 1000));
-      if (percentage === 100) {
-        setTimeout(function () {}, 3000);
-      }
-    },
-  };
-
-  const handleSubmit = (e) => {
-
+  const handleSubmit = () => {
+    if (!serviceNAme) {
+      alert("Enter Service Name");
+    } else {
+      dispatch(postService({ ServiceName: serviceNAme }));
+      setAddserviceData(false);
+      alert("Service Added Successfully !")
+    }
   };
   return (
     <div className="cont_AddData">
@@ -35,29 +30,17 @@ function AddServices({ setAddserviceData }) {
           <input
             className="ibox_AddData"
             type="text"
-            placeholder="Enter Name Here..."
-            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter Service Name Here..."
+            onChange={(e) => setserviceNAme(e.target.value)}
           />
-          {/* <input
-            type="file"
-            name="file"
-            className="ibox_vidUpload"
-            style={{ fontSize: "1rem" }}
-            onChange={(e) => setPic(e.target.files[0])}
-          /> */}
-          {uploading ? (
-            <b className="ibtn_AddData">Uploading...</b>
-          ) : (
-            <>
-              <input
-                type="submit"
-                name="submit"
-                value="Add Data"
-                className="ibtn_AddData"
-                onClick={handleSubmit}
-              />
-            </>
-          )}
+
+          <input
+            type="submit"
+            name="submit"
+            value="Add Data"
+            className="ibtn_AddData"
+            onClick={() => handleSubmit()}
+          />
         </div>
       </div>
     </div>

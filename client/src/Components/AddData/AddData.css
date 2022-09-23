@@ -10,7 +10,7 @@
 }
 .cont2_AddData {
   border: 3px solid rgba(0, 0, 0, 0.578);
-  height: 80vh;
+  height: fit-content;
   margin: auto;
   border-radius: 0.5rem;
   background-color: rgba(255, 255, 255, 0.704);
@@ -48,12 +48,8 @@
 }
 .ibox_AddData,
 .ibtn_AddData {
-  font-size: 1rem;
-  padding: 0.3rem;
-  /* background-color: transparent; */
   color: black;
-  border-radius: 0.2rem;
-  margin:  0.7rem 0.2rem; 
+  margin: 0.7rem 0.2rem;
   font-weight: bold;
 }
 

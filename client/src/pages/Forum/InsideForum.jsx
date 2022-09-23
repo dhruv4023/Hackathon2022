@@ -1,9 +1,8 @@
 import React from "react";
-import {  useSelector } from "react-redux";
 import "./insideForum.css";
 import EditDElDoubt from "./EditDElDoubt";
-function InsideForum({ currentUser }) {
-  const doubtList = useSelector((s) => s.doubtReducer)?.data;
+function InsideForum({ currentUser,doubtList }) {
+  
   return (
     <>
       {doubtList?.map((m) => {

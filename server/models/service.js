@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
   ServiceName: String,
-  requireDocument: { type: [String] },
+  ReqDoc: { type: [String] },
   commentOn: { type: Date, default: Date.now },
 });
 

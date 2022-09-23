@@ -8,11 +8,10 @@ import { postComment } from "../../actions/comments";
 import "./comment.css";
 import { ImCheckmark } from "react-icons/im";
 
-export default function Comment({ dataId }) {
+export default function Comment({ dataId, commentsList }) {
   const [comment, setComment] = useState("");
   const currentUser = useSelector((state) => state.currentUserReducer);
-  const commentsList = useSelector((state) => state.commentReducer);
-  console.log(currentUser);
+  // console.log(currentUser);
   // console.log(commentsList);
 
   const checkAuth = () => {
@@ -24,7 +23,6 @@ export default function Comment({ dataId }) {
   const dispatch = useDispatch();
 
   const handleSubmitComment = () => {
-  
     if (!comment) {
       alert("type your comment");
     } else {
@@ -41,7 +39,7 @@ export default function Comment({ dataId }) {
   };
   return (
     <>
-      <div onClick={checkAuth} className="commentSubForm">
+      <div  onClick={checkAuth} className="commentSubForm">
         <input
           type="text"
           placeholder="add Comment... "
@@ -58,12 +56,13 @@ export default function Comment({ dataId }) {
         />
       </div>
       <div className="displayComment_commentsPage">
-        {commentsList?.data
-          ?.filter((q) => dataId === q?.dataId)
+        {commentsList
+          // ?.filter((q) => dataId === q?.dataId)
           .reverse()
           .map((m) => (
             // console.log(m)
             <DisplayComments
+              key={m?._id}
               cmtId={m._id}
               userId={m.userId}
               cmtBody={m.commentBody}

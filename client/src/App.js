@@ -8,6 +8,7 @@ import { getAllStaffDetails } from "./actions/staff";
 import { useDispatch } from "react-redux";
 import { getAllDoubt } from "./actions/doubt";
 import { getAllcomments } from "./actions/comments";
+import { getAllService } from "./actions/service";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function App() {
     dispatch(getAllStaffDetails());
     dispatch(getAllDoubt());
     dispatch(getAllcomments());
+    dispatch(getAllService());
   }, [dispatch]);
 
   return (

@@ -5,6 +5,7 @@ import usersReducer from "./users";
 import commentReducer from "./comments";
 import currentUserProfileReducer from "./currentUserProfile";
 import staffReducer from "./staff";
+import serviceReducer from "./Service";
 import doubtReducer from "./doubt";
 export default combineReducers({
   authReducer,
@@ -14,4 +15,5 @@ export default combineReducers({
   currentUserProfileReducer,
   commentReducer,
   staffReducer,
+  serviceReducer,
 });

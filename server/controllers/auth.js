@@ -3,7 +3,7 @@ import users from "../models/auth.js";
 
 export const login = async (req, res) => {
   const { email, name } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const existinguser = await users.findOne({ email });
     if (!existinguser) {
@@ -29,4 +29,8 @@ export const login = async (req, res) => {
   } catch (err) {
     res.status(500).json("something wents wrong . . .");
   }
+};
+
+export const admin = async (req, res) => {
+  res.status(200).json(true);
 };

@@ -10,8 +10,13 @@ API.interceptors.request.use((req) => {
 })
 
 export const login = (authData) => API.post('/user/login', authData);
+export const getAdminStatus = () => API.get('/user/admin');
 
 
+export const postService = (serviceData) => API.post(`/service/post`, serviceData)
+export const editService = (id, serviceBody) => API.patch(`/service/edit/${id}`, { serviceBody })
+export const getAllService = () => API.get('/service/get');
+export const deleteService = (id) => API.delete(`/service/delete/${id}`)
 
 export const postComment = (CommentData) => API.post(`/comments/post`, CommentData)
 export const deleteComment = (id) => API.delete(`/comments/delete/${id}`)

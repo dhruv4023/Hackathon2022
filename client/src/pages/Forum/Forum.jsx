@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 
 function Forum() {
   const currentUser = useSelector((s) => s.currentUserReducer)?.result;
+  const doubtList = useSelector((s) => s.doubtReducer)?.data;
   return (
     <div className="container_app1">
       <div className="container_app2">
@@ -15,9 +16,9 @@ function Forum() {
           <div className="title_Forum">Forum To solve Your Doubts</div>
         </div>
         <div className="doubts_list_container_forum">
-          <AskDoubtBtn currentUser={currentUser} />
+          <AskDoubtBtn doubtList={doubtList}  currentUser={currentUser} />
           <div className="list_forum">
-            <InsideForum currentUser={currentUser} />
+            <InsideForum  doubtList={doubtList} currentUser={currentUser} />
           </div>
         </div>
       </div>

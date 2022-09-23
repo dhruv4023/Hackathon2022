@@ -57,8 +57,10 @@ function AddStaffData({ setStaffAddData }) {
         <div className="input_tags_AddData">
           <div className="heading_AddData">Enter Details</div>
           <input
+            required
             className="ibox_AddData"
             type="text"
+            id="name"
             placeholder="Enter Name Here..."
             onChange={(e) => setName(e.target.value)}
           />
@@ -77,7 +79,7 @@ function AddStaffData({ setStaffAddData }) {
           <input
             type="file"
             name="file"
-            className="ibox_vidUpload"
+            className="ibox_AddData"
             style={{ fontSize: "1rem" }}
             onChange={(e) => setPic(e.target.files[0])}
           />

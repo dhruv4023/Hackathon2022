@@ -1,15 +1,26 @@
-.headings_servisesPage{
-    display: flex;
+.headings_servisesPage {
+  display: flex;
 }
-.heading_txt_servisesPage{
-    text-decoration: underline;
-    font-size: 1.5rem;
-    font-weight: bold;
+.heading_txt_servisesPage {
+  text-decoration: underline;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
-.add_btn_servicePage{
-    color: grey;
-    margin:  auto 0;
+.add_btn_servicePage {
+  color: grey;
+  margin: auto 0;
+  width: 50%;
 }
-.add_btn_servicePage:hover{
-    color: blue;
+.add_btn_servicePage:hover {
+  color: blue;
+}
+.Del_servN {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  color: grey;
+}
+.Del_servN:hover {
+  color: red;
 }

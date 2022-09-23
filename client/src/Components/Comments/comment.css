@@ -3,6 +3,7 @@
   width: 70%;
   /* visibility: ; */
   margin: 0.5rem;
+  position: relative;
 }
 
 .commentIBox {
@@ -53,5 +54,5 @@
   border-bottom: 1px solid grey;
   border-top: 1px solid grey;
   border-radius: 1rem;
-  height: 33.5rem;
+  height: 31.5rem;
 }

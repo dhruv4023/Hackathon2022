@@ -1,0 +1,66 @@
+.search_div {
+  margin: auto;
+  flex-grow: 2;
+  display: flex;
+  height: 2.2rem;
+}
+.webView {
+  width: 100vw;
+  margin: auto;
+}
+.search_div2 {
+  display: flex;
+  margin: auto;
+  position: relative;
+  z-index: 91;
+}
+
+.Search_Navbar {
+  background-color: whitesmoke;
+  width: 70%;
+  border-radius: 0.2rem;
+  border: 2px solid rgba(128, 128, 128, 0.452);
+  color: black;
+  font-size: large;
+  padding: 0.2rem;
+  height: 2rem;
+  padding-left: 1rem;
+}
+
+.searchIcon_Navbar:hover {
+  color: blue;
+}
+
+.searchIcon_Navbar {
+  cursor: pointer;
+  padding: 0.1rem;
+}
+
+.searchBar_Navbar_Mobile {
+  background-color: rgb(26, 25, 25);
+  position: absolute;
+  z-index: 5;
+  height: calc(3.5rem - 2px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.3rem;
+  display: none;
+}
+.Search_Navbar_Mobile {
+  height: 1.6rem;
+  border-radius: 5px;
+  padding-left: 1%;
+  width: 100%;
+}
+
+.Mobile {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .Search_Navbar {
+    width: 100%;
+  }
+}

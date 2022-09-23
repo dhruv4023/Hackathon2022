@@ -3,7 +3,15 @@ import "./Home.css";
 function Home() {
   return (
     <div className="container_app1">
-      <div className="container_app2">Home</div>
+      <div className="container_app2">
+        Home
+        <form action="">
+          <div class="input-field">
+            <input type="text" id="name" required />
+            <label for="name">Your name:</label>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

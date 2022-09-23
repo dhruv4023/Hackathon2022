@@ -5,21 +5,26 @@ import { getAllStaffDetails } from "../../actions/staff";
 import { useSelector } from "react-redux";
 function StaffDetails({ setStaffAddData }) {
   const staffDetails = useSelector((s) => s.staffReducer)?.data;
-  // console.log(staffDetails)
+  const adminUser = useSelector((s) => s.authReducer)?.data;
+  // console.log(adminUser,currentUser)
+
   return (
     <div className="container_app1">
       <div className="container_app2">
         <div className="heding_App">
           Staff Details
-          <div className="add_new_btn" onClick={() => setStaffAddData(true)}>
-            Add Staff Service
-          </div>
+          {adminUser && (
+            <div className="add_new_btn" onClick={() => setStaffAddData(true)}>
+              Add Staff Service
+            </div>
+          )}
         </div>
 
         <div className="staff_container">
           {staffDetails?.map((m) => {
             return (
               <StaffN
+              adminUser={adminUser}
                 key={m?._d}
                 _pic={m?.picPath}
                 _id={m?._id}
