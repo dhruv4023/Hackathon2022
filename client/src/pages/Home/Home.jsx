@@ -1,16 +1,33 @@
 import React from "react";
+import { useState } from "react";
+
 import "./Home.css";
 function Home() {
+  // selectCountry (val) {
+  //   this.setState({ country: val });
+  // }
+
+  // selectRegion (val) {
+  //   this.setState({ region: val });
+  // }
+  // const { country, region } = .state;
+  const [country, setCountry] = useState("")
+  const [region, setRegion] = useState("")
   return (
     <div className="container_app1">
       <div className="container_app2">
         Home
-        <form action="">
-          <div class="input-field">
-            <input type="text" id="name" required />
-            <label for="name">Your name:</label>
-          </div>
-        </form>
+        {/* <div>
+          <CountryDropdown
+            value={country}
+            onChange={(val) => setCountry(val)}
+          />
+          <RegionDropdown
+            country={country}
+            value={region}
+            onChange={(val) => setRegion(val)}
+          />
+        </div> */}
       </div>
     </div>
   );

@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { BiEdit } from "react-icons/bi";
+import { VscEdit } from "react-icons/vsc";
 import { BsFillTrashFill } from "react-icons/bs";
 import { ImCheckmark } from "react-icons/im";
 import { useDispatch } from "react-redux";
 import { editService } from "../../actions/service";
 import "./DisplayEditInputBox.css";
-function DisplayEditInputBox({ Sid, textTodisplay, adminUser }) {
+function DisplayEditInputBox({ Sid, textTodisplay, adminUser, arryNm }) {
   const dispatch = useDispatch();
   const [val, setVal] = useState("");
 
@@ -15,13 +15,18 @@ function DisplayEditInputBox({ Sid, textTodisplay, adminUser }) {
   };
   const handleSave = (operation) => {
     setEdit(false);
-    dispatch(editService({ id: Sid, serviceBody: { data: val, operation: operation } }));
+    dispatch(
+      editService({
+        id: Sid,
+        serviceBody: { data: val, operation: operation, arryNm:arryNm },
+      })
+    );
   };
   const handleDelReqDoc = (delItem) => {
     dispatch(
       editService({
         id: Sid,
-        serviceBody: { data: delItem, operation: "del" },
+        serviceBody: { data: delItem, operation: "del", arryNm:arryNm },
       })
     );
   };
@@ -42,7 +47,7 @@ function DisplayEditInputBox({ Sid, textTodisplay, adminUser }) {
         </>
       ) : (
         <div className="text_DisplayEditInputBox">
-          <li>{textTodisplay}</li>
+          <div>{textTodisplay}</div>
           {adminUser && (
             <>
               <b
@@ -53,14 +58,14 @@ function DisplayEditInputBox({ Sid, textTodisplay, adminUser }) {
                 }}
               >
                 {" "}
-                Edit <BiEdit />
+                <VscEdit />
               </b>
               <b
                 onClick={() => handleDelReqDoc(textTodisplay)}
                 className="Del_app"
               >
                 {" "}
-                Delete <BsFillTrashFill />
+                <BsFillTrashFill />
               </b>
             </>
           )}

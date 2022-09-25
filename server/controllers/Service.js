@@ -1,5 +1,6 @@
 import Services from "../models/service.js";
 import mongoose from "mongoose";
+import { reqDocEditFun } from "./ServiceFun/ServFun.js";
 export const postService = async (req, res) => {
   const postServicessData = req.body;
   console.log(postServicessData);
@@ -24,34 +25,13 @@ export const getService = async (req, res) => {
 export const editService = async (req, res) => {
   const { id: _id } = req.params;
   const { serviceBody } = req.body;
-  // console.log(_id, serviceBody);
-  const operation = serviceBody.operation;
+  console.log(_id, serviceBody);
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     return res.status(404).send("service unavailable...");
   }
 
   try {
-    if (operation === -1) {
-      const updatedQuestion = await Services.findByIdAndUpdate(_id, {
-        $addToSet: { ReqDoc: serviceBody.data },
-      });
-      res.status(200).json(updatedQuestion);
-    } else if (operation === "del") {
-      // console.log(serviceBody.data,5)
-      const updatedQuestion = await Services.findByIdAndUpdate(_id, {
-        $pull: { ReqDoc: { $in: serviceBody.data } },
-      });
-      res.status(200).json(updatedQuestion);
-    } else {
-      const updatedQuestion = await Services.findByIdAndUpdate(
-        _id,
-        {
-          $set: { "ReqDoc.$[filter]": serviceBody.data },
-        },
-        { arrayFilters: [{ filter: operation }] }
-      );
-      res.status(200).json(updatedQuestion);
-    }
+    reqDocEditFun(serviceBody.arryNm, serviceBody, _id, res);
   } catch (error) {
     // console.log("edi cmt");
     res.status(400).json("error");

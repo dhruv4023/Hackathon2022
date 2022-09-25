@@ -1,9 +1,15 @@
 .headings_servisesPage {
   display: flex;
 }
+.part_cont_servicePage {
+  margin: 0.5rem 0;
+  padding: 0.2rem;
+  border-bottom: 2px solid;
+}
 .heading_txt_servisesPage {
   text-decoration: underline;
   font-size: 1.5rem;
+  margin: auto 0;
   font-weight: bold;
 }
 .add_btn_servicePage {
@@ -23,4 +29,13 @@
 }
 .Del_servN:hover {
   color: red;
+}
+.item_servicepage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.InputField_cont_servicePage{
+  display: flex;
+  /* border: 1px solid; */
 }

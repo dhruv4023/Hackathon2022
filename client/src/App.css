@@ -67,7 +67,6 @@
 
 /***************/
 
-
 input {
   border: 0;
   border-radius: 0.3rem;
@@ -77,3 +76,18 @@ input {
   box-shadow: none;
   color: #111;
 }
+
+select {
+  width: 5rem;
+  border: none;
+  box-shadow: 1px 1px 1px grey, -1px 1px 1px grey, 1px -1px 1px grey,
+    -1px -1px 1px grey;
+    padding: 0.2rem;
+    margin: 0.2rem;
+    border-radius: 0.2rem;
+    outline-style: none;
+}
+select:hover{
+  background-color: rgba(128, 128, 128, 0.249);
+}
+

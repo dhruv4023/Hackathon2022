@@ -3,17 +3,22 @@
   background-color: white;
   /* flex-grow: 1; */
   width: 100%;
-  top: 2.7rem;
+  top: 2.35rem;
   text-align: left;
   height: fit-content;
   z-index: 91;
   position: absolute;
   border: 1px solid grey;
 }
-
+.serachList_item{
+  text-decoration: none;
+  color: black;
+  word-break: break-all;
+}
 .titleItem {
   margin: 0;
   padding: 0.5rem;
+  font-weight: 500;
   cursor: pointer;
 }
 .titleItem:hover {

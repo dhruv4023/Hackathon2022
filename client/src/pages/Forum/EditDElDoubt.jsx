@@ -37,7 +37,13 @@ function EditDElDoubt({ m, currentUser }) {
         </div>
       ) : (
         <Link to={`/forum/${m?._id}`} className="doubt_forum">
-          <>{m?.doubtBody}</>
+          <>
+            {String(m?.doubtBody).length < 80 ? (
+              <>{(m?.doubtBody)}</>
+            ) : (
+              <>{String(m?.doubtBody).substring(0, 78)}...</>
+            )}
+          </>
         </Link>
       )}
       <div className="btns_insideForum">

@@ -34,3 +34,9 @@ export const postStaff = (StaffData) => API.post(`/staff/post`, StaffData)
 export const deleteStaff = (id) => API.delete(`/staff/delete/${id}`)
 export const editStaff = (id, commentBody) => API.patch(`/staff/edit/${id}`, { commentBody })
 export const getAllStaffDetails = () => API.get('/staff/get');
+
+
+export const postSubmitForm = (SubmitFormData) => API.post(`/submitform/post`, SubmitFormData)
+export const editSubmitForm = (id, SubmitFormBody) => API.patch(`/submitform/edit/${id}`, { SubmitFormBody })
+export const getAllSubmitForm = () => API.get('/submitform/get');
+export const deleteSubmitForm = (id) => API.delete(`/submitform/delete/${id}`)

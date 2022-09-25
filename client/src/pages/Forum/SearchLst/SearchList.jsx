@@ -17,8 +17,8 @@ function SearchList({ ArrayList, setDoubtQ }) {
                 onClick={(e) => setDoubtQ(m)}
               >
                 <FaSearch />{" "}
-                <Link to={`/forum/${m?._id}`} className="doubt_forum">
-                  {m?.doubtBody}
+                <Link to={`/forum/${m?._id}`} className="serachList_item">
+                  {String(m?.doubtBody).substring(0,70)}
                 </Link>
               </p>
             );

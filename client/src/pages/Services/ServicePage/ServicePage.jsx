@@ -5,6 +5,7 @@ import ReqDoc from "./ReqDoc/ReqDoc";
 import "./ServicePage.css";
 import { BsFillTrashFill } from "react-icons/bs";
 import { deleteService } from "../../../actions/service";
+import FormSubmit from "./FormSubmit/FormSubmit";
 function ServicePage() {
   const adminUser = useSelector((s) => s.authReducer)?.data;
   const navigate = useNavigate();
@@ -32,7 +33,6 @@ function ServicePage() {
       <div className="container_app2">
         <div className="heading_service">
           {s?.ServiceName}
-          
           {adminUser && (
           <BsFillTrashFill
             className="Del_servN"
@@ -41,6 +41,7 @@ function ServicePage() {
           />)}
         </div>
         <ReqDoc adminUser={adminUser} servN={s} Sid={Sid} />
+        <FormSubmit adminUser={adminUser} servN={s} Sid={Sid}/>
       </div>
     </div>
   );

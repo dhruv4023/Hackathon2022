@@ -21,7 +21,7 @@ function AddStaffData({ setStaffAddData }) {
   };
 
   const handleSubmit = (e) => {
-    console.log(picFile);
+    // console.log(picFile);
     if (!name) {
       alert("Plz Enter The Name !");
     } else if (!email) {

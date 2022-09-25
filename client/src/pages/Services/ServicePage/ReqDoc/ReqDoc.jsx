@@ -6,6 +6,7 @@ import AddInoutBox from "../../../../Components/DisplayEditInputBox/AddInoutBox"
 import DisplayEditInputBox from "../../../../Components/DisplayEditInputBox/DisplayEditInputBox";
 
 function ReqDoc({ servN, Sid, adminUser }) {
+  const arryNm = "ReqDoc";
   const dispatch = useDispatch();
   const [reqDoc, setReqDoc] = useState("");
   //   console.log(servN);
@@ -13,7 +14,10 @@ function ReqDoc({ servN, Sid, adminUser }) {
   const addReqDoc = () => {
     if (reqDoc) {
       dispatch(
-        editService({ id: Sid, serviceBody: { data: reqDoc, operation: -1 } })
+        editService({
+          id: Sid,
+          serviceBody: { data: reqDoc, operation: -1, arryNm:arryNm },
+        })
       );
     }
     setReqDoc("");
@@ -22,7 +26,7 @@ function ReqDoc({ servN, Sid, adminUser }) {
   /** List*/
 
   return (
-    <div className="req_Document_servicePage">
+    <div className="part_cont_servicePage">
       <div className="headings_servisesPage">
         <div className="heading_txt_servisesPage">Require Documents :</div>
         {adminUser && (
@@ -40,6 +44,7 @@ function ReqDoc({ servN, Sid, adminUser }) {
         return (
           <div key={rd} className="item_servicepage">
             <DisplayEditInputBox
+              arryNm={arryNm}
               Sid={Sid}
               textTodisplay={rd}
               adminUser={adminUser}

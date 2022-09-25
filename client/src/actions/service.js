@@ -4,8 +4,8 @@ export const postService = (serviceData) => async (dispatch) => {
   try {
     const { data } = await api.postService(serviceData);
     console.log(data);
-    dispatch({ type: "POST_SERVICE", payload: data });
-    dispatch(getAllService())
+    // dispatch({ type: "POST_SERVICE", payload: data });
+    // dispatch(getAllService())
   } catch (error) {
     console.log(error);
   }
@@ -25,7 +25,7 @@ export const editService = (serviceData) => async (dispatch) => {
 export const getAllService = () => async (dispatch) => {
   try {
     const { data } = await api.getAllService();
-    console.log(data);
+    // console.log(data);
     dispatch({ type: "FETCH_ALL_SERVICES", payload: data });
   } catch (error) {
     console.log(error);
