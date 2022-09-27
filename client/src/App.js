@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { getAllDoubt } from "./actions/doubt";
 import { getAllcomments } from "./actions/comments";
 import { getAllService } from "./actions/service";
+import { getAllsubmitforms } from "./actions/submitform";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function App() {
     dispatch(getAllDoubt());
     dispatch(getAllcomments());
     dispatch(getAllService());
+    dispatch(getAllsubmitforms());
   }, [dispatch]);
 
   return (

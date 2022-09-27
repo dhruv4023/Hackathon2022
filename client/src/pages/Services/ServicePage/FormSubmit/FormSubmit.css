@@ -1,15 +1,18 @@
-.label_FormSubmit{
-    font-weight: bold;
-    width: 50%;
-    margin: auto 0;
-    text-align: left;
+.label_FormSubmit {
+  font-weight: bold;
+  width: 50%;
+  margin: auto 0;
+  text-align: left;
 }
-.inputTag_FormSubmit{
-    margin: auto 0;
-    text-align: left;
-    padding: 0.2rem;
-    width: 50%;
+.inputTag_FormSubmit {
+  margin: auto 0;
+  text-align: left;
+  padding: 0.2rem;
+  width: 50%;
 }
-.input_formSubmit{
-    width: 90%;
+.input_formSubmit {
+  width: 70%;
+}
+.submitBtn_formSubmit {
+  width: 20%;
 }

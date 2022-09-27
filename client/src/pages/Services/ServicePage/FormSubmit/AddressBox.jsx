@@ -1,6 +1,6 @@
 import React from "react";
 
-function AddressBox({ setVillage }) {
+function AddressBox({ setVillage, LableArray }) {
   const villages = [
     "select",
     "Akedi",
@@ -109,39 +109,78 @@ function AddressBox({ setVillage }) {
     "Vedancha",
     "Virpur",
   ];
+  let x;
   return (
     <>
-      <div className="InputField_cont_servicePage">
-        <div className="label_FormSubmit">State</div>
-        <div className="inputTag_FormSubmit">:Gujarat</div>
-      </div>
-      <div className="InputField_cont_servicePage">
-        <div className="label_FormSubmit">District</div>
-        <div className="inputTag_FormSubmit">:Banaskantha</div>
-      </div>
-      <div className="InputField_cont_servicePage">
-        <div className="label_FormSubmit">Taluka</div>
-        <div className="inputTag_FormSubmit">:Palanpur</div>
-      </div>
-      <div className="InputField_cont_servicePage">
-        <div className="label_FormSubmit">Village</div>
-        <div className="inputTag_FormSubmit">
-          :
-          <select
-            onChange={(e) => {
-              setVillage(e.target.value === "select" ? null : e.target.value);
-            }}
-          >
-            {villages.map((vlj) => {
-              return (
-                <option key={vlj} value={vlj}>
-                  {vlj}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-      </div>
+      <>
+        {
+          (x = LableArray.includes("State") && (
+            <>
+              {" "}
+              <div className="InputField_cont_servicePage">
+                <div className="label_FormSubmit">State</div>
+                <div className="inputTag_FormSubmit">:Gujarat</div>
+              </div>
+            </>
+          ))
+        }
+      </>
+      <>
+        {
+          (x = LableArray.includes("District") && (
+            <>
+              {" "}
+              <div className="InputField_cont_servicePage">
+                <div className="label_FormSubmit">District</div>
+                <div className="inputTag_FormSubmit">:Banaskantha</div>
+              </div>
+            </>
+          ))
+        }
+      </>
+      <>
+        {
+          (x = LableArray.includes("Taluka") && (
+            <>
+              {" "}
+              <div className="InputField_cont_servicePage">
+                <div className="label_FormSubmit">Taluka</div>
+                <div className="inputTag_FormSubmit">:Palanpur</div>
+              </div>
+            </>
+          ))
+        }
+      </>
+
+      <>
+        {
+          (x = LableArray.includes("Village") && (
+            <>
+              <div className="InputField_cont_servicePage">
+                <div className="label_FormSubmit">Village</div>
+                <div className="inputTag_FormSubmit">
+                  :
+                  <select
+                    onChange={(e) => {
+                      setVillage(
+                        e.target.value === "select" ? null : e.target.value
+                      );
+                    }}
+                  >
+                    {villages.map((vlj) => {
+                      return (
+                        <option key={vlj} value={vlj}>
+                          {vlj}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+              </div>
+            </>
+          ))
+        }
+      </>
     </>
   );
 }

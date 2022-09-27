@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
+  ServiceId:{type:String,required:true},
+  Uid:{type:String,required:true},
   Name: String,
   NameOfFather: String,
   DOB: Date,
@@ -13,18 +15,8 @@ const userSchema = mongoose.Schema({
   Pincode: Number,
   MobileNo: Number,
   Gender: String,
-  picName: {
-    type: [String],
-  },
-  picPath: {
-    type: [String],
-  },
-  picType: {
-    type: [String],
-  },
-  picSize: {
-    type: [String],
-  },
+  picName: {type: [String],},
+  picPath: {type: [String],},
   ServicedOn: { type: Date, default: Date.now },
 });
 

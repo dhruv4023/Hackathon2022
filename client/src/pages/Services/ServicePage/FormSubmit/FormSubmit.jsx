@@ -1,17 +1,24 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { ImCheckmark } from "react-icons/im";
+import { useDispatch, useSelector } from "react-redux";
 import { editService } from "../../../../actions/service";
 import AddInoutBox from "../../../../Components/DisplayEditInputBox/AddInoutBox";
+import FormView from "../FormView/FormView";
 import FieldList from "./FieldList";
 
 import "./FormSubmit.css";
-function FormSubmit({ servN, Sid, adminUser }) {
+function FormSubmit({ Sid, servN, adminUser }) {
   const arryNm = "LabelField";
   const dispatch = useDispatch();
-  const [reqFieldLabel, setReqDoc] = useState("");
+  const [reqFieldLabel, setReqFieldLabel] = useState("");
 
-  const addReqDoc = () => {
+  const currentUser = useSelector((s) => s.currentUserReducer)?.result;
+  const currentUsersFormData = useSelector(
+    (s) => s.submitFormReducer
+  )?.data?.filter((q) => q.Uid === currentUser?._id && Sid === q?.ServiceId)[0];
+
+  const addReqField = () => {
     if (reqFieldLabel) {
       dispatch(
         editService({
@@ -19,59 +26,59 @@ function FormSubmit({ servN, Sid, adminUser }) {
           serviceBody: { data: reqFieldLabel, operation: -1, arryNm: arryNm },
         })
       );
+    }else{
+      console.log(8)
     }
-    setReqDoc("");
+    setReqFieldLabel("");
   };
-  const LableArray = [
+  // console.log(servN?.LabelField);
+  const AllLables = [
+    "Select",
     "Name",
-    "Name of Father",
-    "Age",
-    "Aadharcard No",
+    "NameOfFather",
+    "DOB",
+    "AadharcardNo",
     "Address",
     "Taluka",
     "District",
+    "County",
+    "State",
+    "Village",
     "Pincode",
+    "MobileNo",
     "Gender",
   ];
-  const [val, setVal] = useState({
-    Name: "",
-    NameOfFather: "",
-    Age: "",
-    AadharcardNo: "",
-    Address: "",
-    Taluka: "",
-    District: "",
-    Pincode: "",
-    Gender: "",
-  });
+  const toRemove = new Set(servN?.LabelField);
+
+  const LableArray = AllLables.filter((x) => !toRemove.has(x));
   return (
     <div className="part_cont_servicePage">
       <div className="headings_servisesPage">
         <div className="heading_txt_servisesPage">Form :</div>
         {adminUser && (
           <b className="add_btn_servicePage">
-            <AddInoutBox
-              placHold_txt={"Enter To add"}
-              val={reqFieldLabel}
-              setVal={setReqDoc}
-              handleSave={addReqDoc}
-            />
+            <select onChange={(e) => setReqFieldLabel(e.target.value)}>
+              {LableArray.map((m) => {
+                return (
+                  <option  value={m} key={m}>
+                    {m}
+                  </option>
+                );
+              })}
+            </select>
+            <ImCheckmark onClick={()=>addReqField()}/>
           </b>
         )}
       </div>
-      <FieldList />
-      {/* {LableArray.map((rd) => {
-        return (
-          <FieldList
-            key={rd}
-            lableInp={rd}
-            setVal={setVal}
-            arryNm={arryNm}
-            Sid={Sid}
-            adminUser={adminUser}
-          />
-        );
-      })} */}
+      {currentUsersFormData ? (
+        <>
+          <FormView currentUsersFormData={currentUsersFormData} />
+        </>
+      ) : (
+        <>
+          <FieldList Sid={Sid} LableArray={servN?.LabelField} currentUser={currentUser} />
+        </>
+      )}
     </div>
   );
 }

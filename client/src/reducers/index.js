@@ -7,6 +7,7 @@ import currentUserProfileReducer from "./currentUserProfile";
 import staffReducer from "./staff";
 import serviceReducer from "./Service";
 import doubtReducer from "./doubt";
+import submitFormReducer from "./submitform";
 export default combineReducers({
   authReducer,
   currentUserReducer,
@@ -15,5 +16,5 @@ export default combineReducers({
   currentUserProfileReducer,
   commentReducer,
   staffReducer,
-  serviceReducer,
+  serviceReducer,submitFormReducer
 });

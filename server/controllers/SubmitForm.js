@@ -1,17 +1,16 @@
 import SubmitForm from "../models/SubmitForm.js";
 import mongoose from "mongoose";
-import fs from "fs"
+import fs from "fs";
 export const postSubmitForm = async (req, res) => {
-    const postSubmitFormData = req.body;
-    // console.log(postSubmitFormData)
-    const postSubmitForm = new SubmitForm(postSubmitFormData);
-    try {
-      await postSubmitForm.save();
-      res.status(200).json("Posted a SubmitForm successfully");
-    } catch (error) {
-      console.log(error);
-      res.status(400).json("could't post a SubmitForm");
-    }
+  const postSubmitFormData = req.body;
+  const postSubmitForm = new SubmitForm(postSubmitFormData);
+  try {
+    await postSubmitForm.save();
+    res.status(200).json("Posted a SubmitForm successfully");
+  } catch (error) {
+    console.log(error);
+    res.status(400).json("could't post a SubmitForm");
+  }
 };
 
 export const deleteSubmitForm = async (req, res) => {
@@ -20,7 +19,6 @@ export const deleteSubmitForm = async (req, res) => {
     return res.status(404).send("SubmitForm unavailable...");
   }
   try {
-
     const pth = await SubmitForm.findById(_id);
     fs.unlinkSync(pth.picPath);
     await SubmitForm.findByIdAndRemove(_id);
@@ -41,19 +39,30 @@ export const getSubmitForm = async (req, res) => {
 
 export const editSubmitForm = async (req, res) => {
   const { id: _id } = req.params;
-  const { SubmitFormBody } = req.body;
-  // console.log(_id, SubmitFormBody)
-  if (!mongoose.Types.ObjectId.isValid(_id)) {
-    return res.status(404).send("SubmitForm unavailable...");
+  console.log(req.file);
+  // const { SubmitFormBody } = req.body;
+  if (req.file === undefined) {
+    res
+      .status(404)
+      .json({ message: "Plz Upload a '.png' or '.jpeg' image File Only" });
+  } else {
+    if (!mongoose.Types.ObjectId.isValid(_id)) {
+      return res.status(404).send("SubmitForm unavailable...");
+    }
+    console.log(_id);
+    try {
+      updateFormData("picName", req.file.filename, _id, res);
+      updateFormData("picPath", req.file.path, _id, res);
+      res.status(200).json("Files Uploaded !");
+    } catch (error) {
+      res.status(400).json("error");
+    }
   }
-  try {
-    const updatedQuestion = await SubmitForm.findByIdAndUpdate(_id, {
-      $set: { SubmitFormBody: SubmitFormBody },
-    });
-    // console.log("hm")
-    res.status(200).json(updatedQuestion);
-  } catch (error) {
-    // console.log("edi cmt")
-    res.status(400).json("error");
-  }
+};
+
+const updateFormData = async (arryNm, arrayData, _id, res) => {
+  console.log(arryNm, arrayData);
+  const updateForm = await SubmitForm.findByIdAndUpdate(_id, {
+    $addToSet: { [arryNm]: arrayData },
+  });
 };

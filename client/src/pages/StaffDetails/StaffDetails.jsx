@@ -1,7 +1,6 @@
 import React from "react";
 import StaffN from "./StaffN";
 import "./staffDetails.css";
-import { getAllStaffDetails } from "../../actions/staff";
 import { useSelector } from "react-redux";
 function StaffDetails({ setStaffAddData }) {
   const staffDetails = useSelector((s) => s.staffReducer)?.data;

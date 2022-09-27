@@ -12,15 +12,6 @@ function ServicePage() {
   const dispatch = useDispatch();
   const { Sid } = useParams();
   const serviceList = useSelector((s) => s.serviceReducer)?.data;
-  // const singleFileOptions = {
-  //   onUploadProgress: (progressEvent) => {
-  //     const { loaded, total } = progressEvent;
-  //     const percentage = Math.floor(((loaded / 1000) * 100) / (total / 1000));
-  //     if (percentage === 100) {
-  //       setTimeout(function () {}, 3000);
-  //     }
-  //   },
-  // };
   const s = serviceList?.filter((q) => q?._id === Sid)?.map((m) => m)[0];
   const handleDel = (id) => {
     if (window.confirm("Sure To Delete The Service Form ?")) {
