@@ -2,10 +2,12 @@ import React from "react";
 import { useState } from "react";
 import InputField from "./InputField";
 import AddressBox from "./AddressBox";
-import { useDispatch, useSelector } from "react-redux";
+import { BsFillTrashFill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
 import moment from "moment";
-import { postSubmitForm } from "../../../../actions/submitform";
-function FieldList({ Sid, currentUser, LableArray }) {
+import { postSubmitForm } from "../../../../../actions/submitform";
+import { editService } from "../../../../../actions/service";
+function FieldList({ adminUser, Sid, currentUser, LableArray }) {
   const dispatch = useDispatch();
   const [fName, setfName] = useState("");
   const [lName, setlName] = useState("");
@@ -18,9 +20,12 @@ function FieldList({ Sid, currentUser, LableArray }) {
   const [village, setVillage] = useState("");
   const [address, setAddress] = useState("");
   const [mobileNo, setMobileNo] = useState("");
+  // console.log(currentUser)
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!village && LableArray.includes("Village")) {
+    if (!currentUser) {
+      alert("plz Login To Fill The Form !");
+    } else if (!village && LableArray?.includes("Village")) {
       alert("plz select village");
     } else {
       dispatch(
@@ -44,33 +49,56 @@ function FieldList({ Sid, currentUser, LableArray }) {
     }
   };
   let x;
-  // console.log(LableArray.includes("Name"))
+  const handleDelLabel = (lableInput) => {
+    dispatch(
+      editService({
+        id: Sid,
+        serviceBody: {
+          data: lableInput,
+          operation: "del",
+          arryNm: "LabelField",
+        },
+      })
+    );
+  };
   return (
     <>
       <form onSubmit={handleSubmit} className="item_servicepage">
         <>
           {
-            (x = LableArray.includes("Name") && (
+            (x = LableArray?.includes("Name") && (
               <>
                 <InputField
                   req={x}
+                  labelFld={"Name"}
                   lableInput={"First Name"}
                   setVal={setfName}
+                  handleDelLabel={handleDelLabel}
                 />
                 <InputField
                   req={x}
+                  labelFld={"Name"}
+                  handleDelLabel={handleDelLabel}
                   lableInput={"Last Name"}
                   setVal={setlName}
                 />
-                <InputField req={x} lableInput={"Surename"} setVal={setsName} />
+                <InputField
+                  handleDelLabel={handleDelLabel}
+                  req={x}
+                  labelFld={"Name"}
+                  lableInput={"SureName"}
+                  setVal={setsName}
+                />
               </>
             ))
           }
         </>
         <>
           {
-            (x = LableArray.includes("DOB") && (
+            (x = LableArray?.includes("DOB") && (
               <InputField
+                labelFld={"DOB"}
+                handleDelLabel={handleDelLabel}
                 lableInput={"Date of Birthday"}
                 type={"Date"}
                 mx={moment().format("YYYY-MM-DD")}
@@ -81,9 +109,11 @@ function FieldList({ Sid, currentUser, LableArray }) {
         </>
         <>
           {
-            (x = LableArray.includes("NameOfFather") && (
+            (x = LableArray?.includes("NameOfFather") && (
               <InputField
-              req={x}
+                req={x}
+                handleDelLabel={handleDelLabel}
+                labelFld={"NameOfFather"}
                 lableInput={"Full Name of Father"}
                 setVal={setFatherName}
               />
@@ -91,44 +121,54 @@ function FieldList({ Sid, currentUser, LableArray }) {
           }
         </>
         <>
-          {
-            (LableArray.includes("Gender") && (
-              <div className="InputField_cont_servicePage">
-                <div className="label_FormSubmit">Gender</div>
-                <div className="inputTag_FormSubmit">
-                  :
-                  <input
-                    type="radio"
-                    value={"Male"}
-                    required
-                    name="gender"
-                    onChange={(e) => setGender(e.target.value)}
-                  />
-                  Male
-                  <input
-                    type="radio"
-                    value={"Female"}
-                    required
-                    name="gender"
-                    onChange={(e) => setGender(e.target.value)}
-                  />
-                  Female
-                </div>
+          {LableArray?.includes("Gender") && (
+            <div className="InputField_cont_servicePage">
+              <div className="label_FormSubmit">
+                Gender{" "}
+                {adminUser && (
+                  <b
+                    onClick={() => handleDelLabel("Gender")}
+                    className="Del_app"
+                  >
+                    <BsFillTrashFill />
+                  </b>
+                )}
               </div>
-            ))
-          }
+              <div className="inputTag_FormSubmit">
+                :
+                <input
+                  type="radio"
+                  value={"Male"}
+                  required
+                  name="gender"
+                  onChange={(e) => setGender(e.target.value)}
+                />
+                Male
+                <input
+                  type="radio"
+                  value={"Female"}
+                  required
+                  name="gender"
+                  onChange={(e) => setGender(e.target.value)}
+                />
+                Female
+              </div>
+            </div>
+          )}
         </>
         <>
           {
-            (x = LableArray.includes("AadharcardNo") && (
+            (x = LableArray?.includes("AadharcardNo") && (
               <>
                 {" "}
                 <InputField
                   lableInput={"Aadharcard No"}
                   mxlen={12}
+                  labelFld={"AadharcardNo"}
                   req={x}
                   mnlen={12}
                   setVal={setAadharcardNo}
+                  handleDelLabel={handleDelLabel}
                 />
               </>
             ))
@@ -136,11 +176,13 @@ function FieldList({ Sid, currentUser, LableArray }) {
         </>
         <>
           {
-            (x = LableArray.includes("Pincode") && (
+            (x = LableArray?.includes("Pincode") && (
               <>
                 <InputField
                   lableInput={"Pincode"}
                   mxlen={6}
+                  handleDelLabel={handleDelLabel}
+                  labelFld={"Pincode"}
                   mnlen={6}
                   req={x}
                   setVal={setPincode}
@@ -150,14 +192,21 @@ function FieldList({ Sid, currentUser, LableArray }) {
           }
         </>
 
-        <AddressBox LableArray={LableArray} setVillage={setVillage} />
+        <AddressBox
+          adminUser={adminUser}
+          handleDelLabel={handleDelLabel}
+          LableArray={LableArray}
+          setVillage={setVillage}
+        />
         <>
           {
-            (x = LableArray.includes("Address") && (
+            (x = LableArray?.includes("Address") && (
               <>
                 {" "}
                 <InputField
                   req={x}
+                  handleDelLabel={handleDelLabel}
+                  labelFld={"Address"}
                   lableInput={"Address"}
                   setVal={setAddress}
                 />
@@ -167,13 +216,15 @@ function FieldList({ Sid, currentUser, LableArray }) {
         </>
         <>
           {
-            (x = LableArray.includes("MobileNo") && (
+            (x = LableArray?.includes("MobileNo") && (
               <>
                 {" "}
                 <InputField
                   lableInput={"Mobile No"}
                   mnlen={10}
                   req={x}
+                  handleDelLabel={handleDelLabel}
+                  labelFld={"MobileNo"}
                   mxlen={10}
                   setVal={setMobileNo}
                 />

@@ -4,6 +4,7 @@ const userSchema = mongoose.Schema({
   ServiceName: String,
   ReqDoc: { type: [String] },
   LabelField: { type: [String] },
+  LabelDocs: { type: [String] },
   ServicedOn: { type: Date, default: Date.now },
 });
 

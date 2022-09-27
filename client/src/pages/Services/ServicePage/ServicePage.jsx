@@ -1,38 +1,20 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import ReqDoc from "./ReqDoc/ReqDoc";
 import "./ServicePage.css";
-import { BsFillTrashFill } from "react-icons/bs";
-import { deleteService } from "../../../actions/service";
 import FormSubmit from "./FormSubmit/FormSubmit";
+import HeadingServ from "./HeadingServ";
 function ServicePage() {
   const adminUser = useSelector((s) => s.authReducer)?.data;
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const { Sid } = useParams();
-  const serviceList = useSelector((s) => s.serviceReducer)?.data;
-  const s = serviceList?.filter((q) => q?._id === Sid)?.map((m) => m)[0];
-  const handleDel = (id) => {
-    if (window.confirm("Sure To Delete The Service Form ?")) {
-      dispatch(deleteService(id));
-      navigate("/services");
-    }
-  };
+  const servN = useSelector((s) => s.serviceReducer)?.data?.filter((q) => q?._id === Sid)?.map((m) => m)[0];
   return (
     <div className="container_app1">
       <div className="container_app2">
-        <div className="heading_service">
-          {s?.ServiceName}
-          {adminUser && (
-          <BsFillTrashFill
-            className="Del_servN"
-            size={30}
-            onClick={() => handleDel(Sid)}
-          />)}
-        </div>
-        <ReqDoc adminUser={adminUser} servN={s} Sid={Sid} />
-        <FormSubmit adminUser={adminUser} servN={s} Sid={Sid}/>
+        <HeadingServ adminUser={adminUser} servN={servN} Sid={Sid} />
+        <ReqDoc adminUser={adminUser} servN={servN} Sid={Sid} />
+        <FormSubmit adminUser={adminUser} servN={servN} Sid={Sid} />
       </div>
     </div>
   );

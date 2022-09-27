@@ -1,5 +1,6 @@
 import React from "react";
 import { BsFillTrashFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 function InputField({
   lableInput,
@@ -10,19 +11,21 @@ function InputField({
   mnlen = 3,
   mx,
   mn,
-  req=false
+  req = false,
+  handleDelLabel,
+  labelFld,
 }) {
-  const handleDelLabel=()=>{}
+  const adminUser = useSelector((s) => s.authReducer)?.data;
+
   return (
     <div className="InputField_cont_servicePage">
-      <div className="label_FormSubmit">{lableInput}
-      <b
-                onClick={() => handleDelLabel(lableInput)}
-                className="Del_app"
-              >
-                {" "}
-                <BsFillTrashFill />
-              </b>
+      <div className="label_FormSubmit">
+        <>{lableInput}</>
+        {adminUser && (
+          <b onClick={() => handleDelLabel(labelFld)} className="Del_app">
+            <BsFillTrashFill />
+          </b>
+        )}
       </div>
       <div className="inputTag_FormSubmit">
         :
@@ -41,7 +44,6 @@ function InputField({
           className="input_formSubmit"
           placeholder={`Enter ${lableInput}`}
         />
-        
       </div>
     </div>
   );

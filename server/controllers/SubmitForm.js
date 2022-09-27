@@ -39,8 +39,8 @@ export const getSubmitForm = async (req, res) => {
 
 export const editSubmitForm = async (req, res) => {
   const { id: _id } = req.params;
-  console.log(req.file);
-  // const { SubmitFormBody } = req.body;
+  // console.log(req.file);
+  const { title } = req.body;
   if (req.file === undefined) {
     res
       .status(404)
@@ -49,10 +49,14 @@ export const editSubmitForm = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(_id)) {
       return res.status(404).send("SubmitForm unavailable...");
     }
-    console.log(_id);
+    // console.log(_id);
     try {
-      updateFormData("picName", req.file.filename, _id, res);
-      updateFormData("picPath", req.file.path, _id, res);
+      // updateFormData("picTitle", title, _id, res);
+      // updateFormData("picName", req.file.filename, _id, res);
+      // updateFormData("picPath", req.file.path, _id, res);
+      await SubmitForm.findByIdAndUpdate(_id, {
+        $addToSet: { docFilePic: [{ titleP: title, pathP: req.file.path }] },
+      });
       res.status(200).json("Files Uploaded !");
     } catch (error) {
       res.status(400).json("error");
@@ -60,9 +64,9 @@ export const editSubmitForm = async (req, res) => {
   }
 };
 
-const updateFormData = async (arryNm, arrayData, _id, res) => {
-  console.log(arryNm, arrayData);
-  const updateForm = await SubmitForm.findByIdAndUpdate(_id, {
-    $addToSet: { [arryNm]: arrayData },
-  });
-};
+// const updateFormData = async (arryNm, arrayData, _id, res) => {
+//   console.log(arryNm, arrayData);
+//   const updateForm = await SubmitForm.findByIdAndUpdate(_id, {
+//     $addToSet: { [arryNm]: arrayData },
+//   });
+// };

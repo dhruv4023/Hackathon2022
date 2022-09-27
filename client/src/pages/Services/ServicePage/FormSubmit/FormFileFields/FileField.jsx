@@ -1,12 +1,28 @@
 import React from "react";
 import { useState } from "react";
+import { BsFillTrashFill } from "react-icons/bs";
 import { ImCheckmark } from "react-icons/im";
-import "../FormSubmit/FormSubmit.css";
-function FileField({ lableInput, setFile_, uploading }) {
+import "../../FormSubmit/FormSubmit.css";
+function FileField({
+  lableInput,
+  setFile_,
+  uploading,
+  adminUser,
+  handleDelLabel,
+}) {
   return (
     <div className="InputField_cont_servicePage">
-      <div className="label_FormSubmit">{lableInput}</div>
-      {/* {uploading !== 0 ? (
+      <div className="label_FormSubmit">
+        {lableInput}
+        <>
+          {adminUser && (
+            <b onClick={() => handleDelLabel(lableInput)} className="Del_app">
+              <BsFillTrashFill />
+            </b>
+          )}
+        </>
+      </div>
+      {uploading !== 0 ? (
         <>
           {uploading < 99 ? (
             <>{uploading}% Done</>
@@ -17,7 +33,7 @@ function FileField({ lableInput, setFile_, uploading }) {
           )}
         </>
       ) : (
-        <> */}
+        <>
           <div className="inputTag_FormSubmit">
             :
             <input
@@ -32,8 +48,8 @@ function FileField({ lableInput, setFile_, uploading }) {
               multiple
             />
           </div>
-        {/* </>
-      )} */}
+        </>
+      )}
     </div>
   );
 }

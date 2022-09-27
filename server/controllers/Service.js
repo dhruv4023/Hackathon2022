@@ -25,7 +25,7 @@ export const getService = async (req, res) => {
 export const editService = async (req, res) => {
   const { id: _id } = req.params;
   const { serviceBody } = req.body;
-  console.log(_id, serviceBody);
+  // console.log(_id, serviceBody);
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     return res.status(404).send("service unavailable...");
   }

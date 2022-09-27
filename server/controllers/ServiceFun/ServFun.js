@@ -15,9 +15,7 @@ export const reqDocEditFun = async (ArrayNm, serviceBody, _id, res) => {
   } else {
     if (ArrayNm === "ReqDoc") {
       reqDoc(serviceBody, _id, res, operation);
-    } else {
-      labelField(serviceBody, _id, res, operation);
-    }
+    } 
   }
 };
 const reqDoc = async (serviceBody, _id, res, operation) => {
@@ -25,16 +23,6 @@ const reqDoc = async (serviceBody, _id, res, operation) => {
     _id,
     {
       $set: { "ReqDoc.$[filter]": serviceBody.data },
-    },
-    { arrayFilters: [{ filter: operation }] }
-  );
-  res.status(200).json(updatedQuestion);
-};
-const labelField = async (serviceBody, _id, res, operation) => {
-  const updatedQuestion = await Services.findByIdAndUpdate(
-    _id,
-    {
-      $set: { "LabelField.$[filter]": serviceBody.data },
     },
     { arrayFilters: [{ filter: operation }] }
   );

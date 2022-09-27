@@ -1,6 +1,7 @@
 import React from "react";
 
-function AddressBox({ setVillage, LableArray }) {
+import { BsFillTrashFill } from "react-icons/bs";
+function AddressBox({ adminUser, setVillage, LableArray, handleDelLabel }) {
   const villages = [
     "select",
     "Akedi",
@@ -110,54 +111,50 @@ function AddressBox({ setVillage, LableArray }) {
     "Virpur",
   ];
   let x;
+  const addbox = {
+    State: "Gujarat",
+    District: "Banaskantha",
+    Taluka: "Palanpur",
+  };
+
   return (
     <>
-      <>
-        {
-          (x = LableArray.includes("State") && (
-            <>
-              {" "}
-              <div className="InputField_cont_servicePage">
-                <div className="label_FormSubmit">State</div>
-                <div className="inputTag_FormSubmit">:Gujarat</div>
+      {Object.keys(addbox).map((m) => {
+        return (x = LableArray.includes(m) && (
+          <>
+            {" "}
+            <div className="InputField_cont_servicePage">
+              <div className="label_FormSubmit">
+                <>{m}</>
+                <>
+                  {adminUser && (
+                    <b onClick={() => handleDelLabel(m)} className="Del_app">
+                      <BsFillTrashFill />
+                    </b>
+                  )}
+                </>
               </div>
-            </>
-          ))
-        }
-      </>
-      <>
-        {
-          (x = LableArray.includes("District") && (
-            <>
-              {" "}
-              <div className="InputField_cont_servicePage">
-                <div className="label_FormSubmit">District</div>
-                <div className="inputTag_FormSubmit">:Banaskantha</div>
-              </div>
-            </>
-          ))
-        }
-      </>
-      <>
-        {
-          (x = LableArray.includes("Taluka") && (
-            <>
-              {" "}
-              <div className="InputField_cont_servicePage">
-                <div className="label_FormSubmit">Taluka</div>
-                <div className="inputTag_FormSubmit">:Palanpur</div>
-              </div>
-            </>
-          ))
-        }
-      </>
-
+              <div className="inputTag_FormSubmit">:{addbox[m]}</div>
+            </div>
+          </>
+        ));
+      })}
       <>
         {
           (x = LableArray.includes("Village") && (
             <>
               <div className="InputField_cont_servicePage">
-                <div className="label_FormSubmit">Village</div>
+                <div className="label_FormSubmit">
+                  Village
+                  {adminUser && (
+                    <b
+                      onClick={() => handleDelLabel("Village")}
+                      className="Del_app"
+                    >
+                      <BsFillTrashFill />
+                    </b>
+                  )}
+                </div>
                 <div className="inputTag_FormSubmit">
                   :
                   <select
