@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import { ImCheckboxChecked } from "react-icons/im";
 import { useDispatch } from "react-redux";
 import { editService } from "../../../../../actions/service";
 import { editSubmitForm } from "../../../../../actions/submitform";
 import DocsView from "../../FormView/DocsView";
 import FileField from "./FileField";
-
+import "./FormFileFields.css";
 function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
   const [uploading, setUploading] = useState(0);
   const [aadharCard, setAadharCard] = useState();
@@ -94,22 +95,46 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
               </>
             );
           })}
+        <DocsView
+          uploadedDocsObj={uploadedDocsObj}
+          uploadedDocArr={uploadedDocArr}
+        />
       </>
-      {fId && (
-        <>
-          {uploadedDocsObj.length !== labelDocArr.length && (
-            <div className="submitBtn_formSubmit">
+      <div className="submitBtn_formSubmit">
+        {fId && (
+          <>
+            {uploadedDocsObj.length !== labelDocArr.length ? (
               <input
                 onClick={() => handleFileupload()}
                 className="ibtn_AddData"
                 value={"Upload"}
                 type="submit"
               />
-            </div>
-          )}
-        </>
-      )}
-      <DocsView uploadedDocsObj={uploadedDocsObj} uploadedDocArr={uploadedDocArr}/>
+            ) : (
+              <>
+                <b className="Status_subDoc">
+                  <b style={{ margin: "0 auto", padding: "0.2rem" }}>
+                    Submited Successfully
+                  </b>
+                  <b style={{ margin: "0 auto", padding: "0.2rem" }}>
+                    <ImCheckboxChecked size={22} />
+                  </b>
+                </b>
+                {currentUsersFormData?.status && (
+                  <b className="Status_subDoc">
+                    <b style={{ margin: "0 auto", padding: "0.2rem" }}>
+                      Verified
+                    </b>
+                    <b style={{ margin: "0 auto", padding: "0.2rem" }}>
+                      <ImCheckboxChecked size={22} />
+                    </b>
+                  </b>
+                )}
+              </>
+            )}
+          </>
+        )}
+      </div>
     </>
   );
 }

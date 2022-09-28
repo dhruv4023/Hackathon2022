@@ -120,7 +120,7 @@ function AddressBox({ adminUser, setVillage, LableArray, handleDelLabel }) {
   return (
     <>
       {Object.keys(addbox).map((m) => {
-        return (x = LableArray.includes(m) && (
+        return (x = LableArray?.includes(m) && (
           <>
             {" "}
             <div className="InputField_cont_servicePage">
@@ -141,7 +141,7 @@ function AddressBox({ adminUser, setVillage, LableArray, handleDelLabel }) {
       })}
       <>
         {
-          (x = LableArray.includes("Village") && (
+          (x = LableArray?.includes("Village") && (
             <>
               <div className="InputField_cont_servicePage">
                 <div className="label_FormSubmit">

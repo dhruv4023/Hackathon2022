@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { reqDocEditFun } from "./ServiceFun/ServFun.js";
 export const postService = async (req, res) => {
   const postServicessData = req.body;
-  console.log(postServicessData);
+  // console.log(postServicessData);
   const postServices = new Services(postServicessData);
   try {
     await postServices.save();

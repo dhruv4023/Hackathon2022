@@ -39,7 +39,7 @@ export const getAllStaffDetails = () => async (dispatch) => {
 
 export const deleteStaff = (id) => async (dispatch) => {
   try {
-    console.log(id);
+    // console.log(id);
     await api.deleteStaff(id);
     dispatch(getAllStaffDetails());
   } catch (error) {

@@ -8,7 +8,7 @@ export const postSubmitForm = async (req, res) => {
     await postSubmitForm.save();
     res.status(200).json("Posted a SubmitForm successfully");
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(400).json("could't post a SubmitForm");
   }
 };

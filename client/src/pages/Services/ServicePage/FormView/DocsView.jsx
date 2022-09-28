@@ -1,7 +1,7 @@
 import React from "react";
 
 function DocsView({ uploadedDocsObj }) {
-    console.log(uploadedDocsObj)
+    // console.log(uploadedDocsObj)
   return (
     <div className="SubmitedData_FormView">
       {(uploadedDocsObj)

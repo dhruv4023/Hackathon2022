@@ -1,0 +1,29 @@
+.submitedForm_List_Cont {
+  padding: 0.5rem;
+  width: fit-content;
+  margin: auto;
+}
+.list_item_submitedFormLst:hover {
+  color: greenyellow;
+  border-radius: 100%;
+  background-color: blue;
+}
+.list_item_submitedFormLst {
+  /* border: 1px solid; */
+  text-decoration: none;
+  margin: 0.2rem auto;
+  cursor: pointer;
+  color: whitesmoke;
+  font-weight: 500;
+  padding: 0.5rem;
+  background-color: rgb(64, 92, 232);
+  text-align: center;
+  border: 0.1rem solid;
+  border-radius: 0.2rem;
+  transition: all 2s;
+}
+@media (max-width: 400px) {
+  .submitedForm_List_Cont {
+    width: 100%;
+  }
+}

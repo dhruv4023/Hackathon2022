@@ -71,7 +71,7 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                {/* <GoogleLogin
+                <GoogleLogin
                   clientId={process.env.REACT_APP_GAPI}
                   onSuccess={onSuccess}
                   onFailure={onFailure}
@@ -79,14 +79,14 @@ export default function Navbar() {
                     <>  <p
                         onClick={renderProps.onClick}
                         className="sign_in_Navbar"
-                      > */}
-                <p onClick={logTmp} className="sign_in_Navbar">
+                      >
+                {/* <p onClick={logTmp} className="sign_in_Navbar"> */}
                   <FcGoogle size={50} />
                 </p>
                 </>
-                //   )}
-                // />
-              // </>
+                  )}
+                />
+              </>
             )}
           </div>
         </div>

@@ -14,7 +14,7 @@ export const postcomment = async (req, res) => {
     });
     res.status(200).json("Posted a Comment successfully");
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(400).json("could't post a Comment");
   }
 };

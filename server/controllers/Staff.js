@@ -28,7 +28,7 @@ export const postStaff = async (req, res, next) => {
       await staffFile.save();
       res.status(200).json("Posted a Staff successfully");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       res.status(400).json("could't post a Staff Details");
     }
   }

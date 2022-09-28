@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import DoubtPage from "../pages/Forum/DoubtPage/DoubtPage";
 import Forum from "../pages/Forum/Forum";
 import Home from "../pages/Home/Home";
+import FormViewAdminSide from "../pages/Services/ServicePage/FormViewAdminSide/FormViewAdminSide";
 import ServicePage from "../pages/Services/ServicePage/ServicePage";
 import Services from "../pages/Services/Services";
 import StaffDetails from "../pages/StaffDetails/StaffDetails";
@@ -33,6 +34,7 @@ function AllRoutes() {
           element={<StaffDetails setStaffAddData={setStaffAddData} />}
         />
         <Route path={"/services/:Sid"} element={<ServicePage />} />
+        <Route path={"/services/submitedForm/:sFId/:Sid"} element={<FormViewAdminSide />} />
         <Route path={"/forum/:fid"} element={<DoubtPage />} />
       </Routes>
     </>

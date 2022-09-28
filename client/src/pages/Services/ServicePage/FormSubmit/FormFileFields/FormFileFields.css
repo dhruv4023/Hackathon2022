@@ -1,0 +1,12 @@
+.Status_subDoc{
+    width: fit-content;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: rgb(48, 48, 48);
+    color: aliceblue;
+    font-weight: bolder;
+    cursor:not-allowed;
+    margin: auto;
+    display: flex;
+    margin: 0.2rem auto;
+}

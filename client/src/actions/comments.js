@@ -31,13 +31,13 @@ export const getAllcomments = () => async (dispatch) => {
         dispatch({ type: 'FETCH_ALL_COMMENTS', payload: data })
     } catch (error) {
         console.log(error)
-        console.log("error")
+        // console.log("error")
     }
 }
 
 export const deleteComment = (id) => async (dispatch) => {
     try {
-        console.log(id)
+        // console.log(id)
         await api.deleteComment(id)
         dispatch(getAllcomments())
     } catch (error) {

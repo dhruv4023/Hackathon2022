@@ -2,10 +2,10 @@ import * as api from "../api";
 
 export const postSubmitForm = (submitformData) => async (dispatch) => {
   try {
-    console.log(submitformData);
+    // console.log(submitformData);
     const { data } = await api.postSubmitForm(submitformData);
     dispatch({ type: "POST_SUBMITFORM", payload: data });
-    console.log(data);
+    // console.log(data);
     dispatch(getAllsubmitforms());
   } catch (error) {
     console.log(error);
@@ -30,13 +30,13 @@ export const getAllsubmitforms = () => async (dispatch) => {
     dispatch({ type: "FETCH_ALL_SUBMITFORMS", payload: data });
   } catch (error) {
     console.log(error);
-    console.log("error");
+    // console.log("error");
   }
 };
 
 export const deleteSubmitForm = (id) => async (dispatch) => {
   try {
-    console.log(id);
+    // console.log(id);
     await api.deleteSubmitForm(id);
     dispatch(getAllsubmitforms());
   } catch (error) {
