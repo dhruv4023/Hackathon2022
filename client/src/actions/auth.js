@@ -19,7 +19,7 @@ export const getAdminStatus=() => async (dispatch) => {
     try {
         const { data } = await api.getAdminStatus()
         dispatch({ type: 'GET_ADMIN_STATUS', payload: data })
-        console.log(data)
+        // console.log(data)
     } catch (error) {
         console.log(error)
         

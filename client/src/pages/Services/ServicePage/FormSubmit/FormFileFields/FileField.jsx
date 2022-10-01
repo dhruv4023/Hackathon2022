@@ -1,6 +1,6 @@
 import React from "react";
 import { BsFillTrashFill } from "react-icons/bs";
-import { ImCheckmark } from "react-icons/im";
+import spin from "../../../../../Components/Navbar/LoginPageBlure/spin.gif";
 import "../../FormSubmit/FormSubmit.css";
 function FileField({
   lableInput,
@@ -23,13 +23,7 @@ function FileField({
       </div>
       {uploading !== 0 ? (
         <>
-          {uploading < 99 ? (
-            <>{uploading}% Done</>
-          ) : (
-            <>
-              <ImCheckmark />
-            </>
-          )}
+        <img src={spin} width={20} alt="Loading..." />
         </>
       ) : (
         <>

@@ -23,7 +23,7 @@ function StaffDetails({ setStaffAddData }) {
           {staffDetails?.map((m) => {
             return (
               <StaffN
-              adminUser={adminUser}
+                adminUser={adminUser}
                 key={m?._d}
                 _pic={m?.picPath}
                 _id={m?._id}

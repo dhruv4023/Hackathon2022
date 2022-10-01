@@ -6,7 +6,7 @@ import { postDoubt } from "../../actions/doubt";
 import SearchList from "./SearchLst/SearchList";
 function AskDoubtBtn({ currentUser, doubtList }) {
   const dispatch = useDispatch();
-  const [doubtQ, setDoubtQ] = useState("");
+  const [doubtQ, setDoubtQ] = useState();
   // const ArrayList = ["abc", "xyz", "pqr"];
   const [searchList, setSearchList] = useState(false);
 
