@@ -110,7 +110,6 @@ function AddressBox({ adminUser, setVillage, LableArray, handleDelLabel }) {
     "Vedancha",
     "Virpur",
   ];
-  let x;
   const addbox = {
     State: "Gujarat",
     District: "Banaskantha",
@@ -120,7 +119,7 @@ function AddressBox({ adminUser, setVillage, LableArray, handleDelLabel }) {
   return (
     <>
       {Object.keys(addbox).map((m) => {
-        return (x = LableArray?.includes(m) && (
+        return (LableArray?.includes(m) && (
           <>
             {" "}
             <div className="InputField_cont_servicePage">
@@ -141,7 +140,7 @@ function AddressBox({ adminUser, setVillage, LableArray, handleDelLabel }) {
       })}
       <>
         {
-          (x = LableArray?.includes("Village") && (
+          (LableArray?.includes("Village") && (
             <>
               <div className="InputField_cont_servicePage">
                 <div className="label_FormSubmit">

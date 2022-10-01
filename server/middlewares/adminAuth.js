@@ -6,15 +6,13 @@ const adminAuth = (req, res, next) => {
 
     let decodeData = jwt.verify(token, process.env.JWT_SECRET);
     // console.log(decodeData.email)
-    if (decodeData.email !== process.env.ADMINID)
-      res.status(200).json(false);
+    if (decodeData.email !== process.env.ADMINID) res.status(200).json(false);
     else {
       req.userId = decodeData?.id;
       next();
     }
   } catch (error) {
-    // console.log(error);
-    res.status(400).json("Invalid Credentials");
+    res.status(200).json(false);
   }
 };
 

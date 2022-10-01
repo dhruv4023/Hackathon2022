@@ -8,6 +8,7 @@ const userSchema = mongoose.Schema({
   DOB: Date,
   AadharcardNo: Number,
   Address: String,
+  Village: String,
   Taluka: String,
   District: String,
   County: String,

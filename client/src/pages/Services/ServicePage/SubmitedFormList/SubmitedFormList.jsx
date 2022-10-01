@@ -46,12 +46,12 @@ function SubmitedFormList({ Sid, servN }) {
 
 export default SubmitedFormList;
 
-{
-  /* <div className="submitedForm_List_Cont">
+// {
+/* <div className="submitedForm_List_Cont">
   <Link to={'/'} className="list_item_submitedFormLst">name</Link>
   <Link to={'/'} className="list_item_submitedFormLst">name</Link>
   <Link to={'/'} className="list_item_submitedFormLst">name</Link>
   <Link to={'/'} className="list_item_submitedFormLst">name</Link>
   <Link to={'/'} className="list_item_submitedFormLst">name</Link>
 </div> */
-}
+// }

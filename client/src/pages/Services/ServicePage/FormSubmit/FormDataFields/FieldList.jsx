@@ -37,6 +37,7 @@ function FieldList({ adminUser, Sid, currentUser, LableArray }) {
           DOB: dob,
           AadharcardNo: aadharcardNo,
           Address: address,
+          Village: village,
           Taluka: "Palanpur",
           District: "Banaskantha",
           County: "India",

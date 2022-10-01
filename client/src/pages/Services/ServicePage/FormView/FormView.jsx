@@ -2,12 +2,12 @@ import React from "react";
 import "./FormView.css";
 function FormView({ currentUsersFormData, LableArray }) {
   const obj = currentUsersFormData;
-  // console.log((obj));
+  console.log(obj,LableArray);
   return (
     <>
       <div className="SubmitedData_FormView">
         {Object.keys(obj)
-          ?.filter((q) => (LableArray.includes(q)))
+          ?.filter((q) => (LableArray?.includes(q)))
           .map((k, i) => {
             return (
               <div key={i} className="InputField_cont_servicePage">

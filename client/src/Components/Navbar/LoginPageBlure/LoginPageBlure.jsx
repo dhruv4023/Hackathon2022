@@ -7,7 +7,7 @@ function LoginPageBlure({blurPage}) {
       {blurPage && (
         <div className="LoginPageBlure_c">
           <div className="LoginPageBlure_c1">
-            <img src={spin}/>
+            <img src={spin} alt={"Loading..."}/>
           </div>
         </div>
       )}

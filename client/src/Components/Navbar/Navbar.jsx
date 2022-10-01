@@ -43,7 +43,7 @@ export default function Navbar() {
     setBlurPage(false);
   };
   const logTmp = () => {
-    dispatch(login({ email: "abzxy50312@gmail.com", name: "abz" }));
+    dispatch(login({ email: "abzxy5031@gmail.com", name: "abz" }));
     alert("Login Successfully");
     setBlurPage(false);
   };

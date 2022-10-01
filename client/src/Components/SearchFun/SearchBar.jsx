@@ -2,11 +2,7 @@ import React from "react";
 import "./searchBar.css";
 import "./searchBar.css";
 import { ImSearch } from "react-icons/im";
-import { useState } from "react";
-function SearchBar({ TitleArray, searchQuery, setSearchQuery }) {
-  const [searchList, setSearchList] = useState(false);
-  // console.log(searchList, searchQuery);
-  // const SeacrhListArray=null;
+function SearchBar({searchQuery, setSearchQuery }) {
   return (
     <>
       <div className="search_div">
@@ -18,11 +14,11 @@ function SearchBar({ TitleArray, searchQuery, setSearchQuery }) {
               placeholder="Search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              onClick={() => setSearchList(true)}
+              // onClick={() => setSearchList(true)}
             />
             <ImSearch
               size={30}
-              onClick={(e) => setSearchList(false)}
+              // onClick={(e) => setSearchList(false)}
               className="searchIcon_Navbar"
             />
           </div>

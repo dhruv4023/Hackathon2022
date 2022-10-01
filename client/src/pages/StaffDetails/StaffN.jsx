@@ -1,8 +1,7 @@
 import React from "react";
 import "./staffN.css";
-// import { BiEdit } from "react-icons/bi";
 import { BsFillTrashFill } from "react-icons/bs";
-import pic from "./DummyImg.png";
+// import pic from "./DummyImg.png";
 import { useDispatch } from "react-redux";
 import { deleteStaff } from "../../actions/staff";
 function StaffN({ adminUser, _id, _name, _email, _post, _pic }) {
