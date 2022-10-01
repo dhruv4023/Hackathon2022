@@ -59,3 +59,9 @@
 .sign_in_Navbar:hover {
  box-shadow: 2px ; 
 }
+
+@media (max-width:550px){
+  .title_navbar{
+    font-size: 5vw;
+  }
+}

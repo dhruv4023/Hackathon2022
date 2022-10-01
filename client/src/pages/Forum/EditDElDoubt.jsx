@@ -18,7 +18,7 @@ function EditDElDoubt({ m, currentUser }) {
   const handleSave = (qid) => {
     dispatch(editDoubt({ id: qid, doubtBody: doubtQ }));
   };
-  const adminUser = useSelector((s) => s.authReducer)?.data;
+  const adminUser = useSelector((s) => s?.authReducer)?.data;
 
   return (
     <>

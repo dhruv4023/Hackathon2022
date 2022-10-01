@@ -2,7 +2,7 @@ import React from "react";
 import "./FormView.css";
 function FormView({ currentUsersFormData, LableArray }) {
   const obj = currentUsersFormData;
-  console.log(obj,LableArray);
+  // console.log(obj,LableArray);
   return (
     <>
       <div className="SubmitedData_FormView">

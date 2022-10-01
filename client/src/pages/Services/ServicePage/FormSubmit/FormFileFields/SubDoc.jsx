@@ -12,10 +12,10 @@ import FileField from "./FileField";
 import "./FormFileFields.css";
 function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
   const [uploading, setUploading] = useState(0);
-  const [aadharCard, setAadharCard] = useState();
-  const [Rationcard, setRationcard] = useState();
-  const [EleCard, setEleCard] = useState();
-  const [lcCerti, setLcCerti] = useState();
+  const [aadharCard, setAadharCard] = useState("");
+  const [Rationcard, setRationcard] = useState("");
+  const [EleCard, setEleCard] = useState("");
+  const [lcCerti, setLcCerti] = useState("");
   const labelDocArr = servN?.LabelDocs;
   const singleFileOptions = {
     onUploadProgress: (progressEvent) => {

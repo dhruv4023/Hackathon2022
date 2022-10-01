@@ -7,8 +7,8 @@ import AskDoubtBtn from "./AskDoubtBtn";
 import { useSelector } from "react-redux";
 
 function Forum() {
-  const currentUser = useSelector((s) => s.currentUserReducer)?.result;
-  const doubtList = useSelector((s) => s.doubtReducer)?.data;
+  const currentUser = useSelector((s) => s?.currentUserReducer)?.result;
+  const doubtList = useSelector((s) => s?.doubtReducer)?.data;
   return (
     <div className="container_app1">
       <div className="container_app2">

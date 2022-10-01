@@ -4,7 +4,7 @@ import { useState } from "react";
 import { postService } from "../../actions/service";
 function AddServices({ setAddserviceData }) {
   const dispatch = useDispatch();
-  const [serviceNAme, setserviceNAme] = useState();
+  const [serviceNAme, setserviceNAme] = useState("");
 
   const handleSubmit = () => {
     if (!serviceNAme) {

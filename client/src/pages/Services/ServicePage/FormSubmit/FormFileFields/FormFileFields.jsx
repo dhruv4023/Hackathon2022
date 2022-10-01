@@ -8,7 +8,7 @@ function FormFileFields({ adminUser, Sid, servN, currentUsersFormData }) {
   const arryNm = "LabelDocs";
   const dispatch = useDispatch();
 
-  const [ReqFileField, setSetReqFileField] = useState();
+  const [ReqFileField, setSetReqFileField] = useState("");
   const addReqField = () => {
     if (ReqFileField) {
       dispatch(
