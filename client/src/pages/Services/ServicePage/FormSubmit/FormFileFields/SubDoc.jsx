@@ -1,6 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { ImCheckboxChecked } from "react-icons/im";
+import {
+  ImCheckboxChecked,
+  ImCheckboxUnchecked,
+  ImRadioUnchecked,
+} from "react-icons/im";
 import { useDispatch } from "react-redux";
 import { editService } from "../../../../../actions/service";
 import { editSubmitForm } from "../../../../../actions/submitform";
@@ -73,7 +77,6 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
   };
   const uploadedDocsObj = currentUsersFormData?.docFilePic;
   const uploadedDocArr = uploadedDocsObj?.filter((q) => q).map((m) => m.titleP);
-  // console.log();
   return (
     <>
       <>
@@ -100,6 +103,7 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
           uploadedDocArr={uploadedDocArr}
         />
       </>
+
       <div className="submitBtn_formSubmit">
         {fId && (
           <>
@@ -120,7 +124,7 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
                     <ImCheckboxChecked size={22} />
                   </b>
                 </b>
-                {currentUsersFormData?.status && (
+                {currentUsersFormData?.status ? (
                   <b className="Status_subDoc">
                     <b style={{ margin: "0 auto", padding: "0.2rem" }}>
                       Verified
@@ -129,6 +133,17 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
                       <ImCheckboxChecked size={22} />
                     </b>
                   </b>
+                ) : (
+                  <>
+                    <b className="Status_subDoc">
+                      <b style={{ margin: "0 auto", padding: "0.2rem" }}>
+                        Pending to Verify
+                      </b>
+                      <b style={{ margin: "0 auto", padding: "0.2rem" }}>
+                        <ImCheckboxUnchecked size={22} />
+                      </b>
+                    </b>
+                  </>
                 )}
               </>
             )}

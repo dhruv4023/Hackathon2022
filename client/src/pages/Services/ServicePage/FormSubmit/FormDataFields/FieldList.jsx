@@ -232,14 +232,17 @@ function FieldList({ adminUser, Sid, currentUser, LableArray }) {
             ))
           }
         </>
-
-        <input
-          type="submit"
-          required
-          name="submit"
-          value="Submit The Form"
-          className="ibtn_AddData"
-        />
+        {!adminUser && (
+          <>
+            <input
+              type="submit"
+              required
+              name="submit"
+              value="Submit The Form"
+              className="ibtn_AddData"
+            />
+          </>
+        )}
       </form>
     </>
   );

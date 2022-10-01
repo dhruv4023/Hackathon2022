@@ -15,8 +15,18 @@ export const postSubmitForm = (submitformData) => async (dispatch) => {
 export const editSubmitForm = (submitformData) => async (dispatch) => {
   try {
     const { id, fileData, singleFileOptions } = submitformData;
-    // console.log(id, fileData, singleFileOptions);
     const { data } = await api.editSubmitForm(id, fileData, singleFileOptions);
+    dispatch({ type: "POST_SUBMITFORM", payload: data });
+    dispatch(getAllsubmitforms());
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const updateFormStatus = (id) => async (dispatch) => {
+  try {
+    // const { id } = submitformData;
+    console.log(id)
+    const { data } = await api.updateFormStatus(id);
     dispatch({ type: "POST_SUBMITFORM", payload: data });
     dispatch(getAllsubmitforms());
   } catch (error) {

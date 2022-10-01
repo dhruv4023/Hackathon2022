@@ -1,0 +1,14 @@
+.LoginPageBlure_c{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 500;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.LoginPageBlure_c1{
+    margin: auto;
+    color: aliceblue;
+    font-weight: bolder;
+    font-size: 2rem;
+}

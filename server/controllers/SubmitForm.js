@@ -8,7 +8,6 @@ export const postSubmitForm = async (req, res) => {
     await postSubmitForm.save();
     res.status(200).json("Posted a SubmitForm successfully");
   } catch (error) {
-    // console.log(error);
     res.status(400).json("could't post a SubmitForm");
   }
 };
@@ -63,7 +62,22 @@ export const editSubmitForm = async (req, res) => {
     }
   }
 };
+export const updateFormStatus = async (req, res) => {
+  const { id: _id } = req.params;
+  // console.log(_id);
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    return res.status(404).send("SubmitForm unavailable...");
+  }
+  try {
+    const updateStatus = await SubmitForm.findByIdAndUpdate(_id, {
+      $set: { status: true },
+    });
 
+    res.status(200).json(updateStatus);
+  } catch (error) {
+    res.status(400).json("error");
+  }
+};
 // const updateFormData = async (arryNm, arrayData, _id, res) => {
 //   console.log(arryNm, arrayData);
 //   const updateForm = await SubmitForm.findByIdAndUpdate(_id, {

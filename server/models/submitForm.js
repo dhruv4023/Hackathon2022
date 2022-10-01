@@ -15,15 +15,13 @@ const userSchema = mongoose.Schema({
   Pincode: Number,
   MobileNo: Number,
   Gender: String,
+  status:{type:Boolean,default:false},
   docFilePic: [
     {
       titleP: String,
       pathP: String,
     },
   ],
-  picTitle: { type: [String] },
-  picName: { type: [String] },
-  picPath: { type: [String] },
   ServicedOn: { type: Date, default: Date.now },
 });
 

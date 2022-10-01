@@ -59,19 +59,6 @@ function FormFileFields({ adminUser, Sid, servN, currentUsersFormData }) {
         </div>
 
         <SubDoc  Sid={Sid} adminUser={adminUser} servN={servN} currentUsersFormData={currentUsersFormData} fId={formId} />
-        {/* {obj && (
-      <>
-        {obj["picPath"].length !== 0 && (
-          <>
-            {obj["picPath"].map((m) => {
-              return <>
-
-              </>;
-            })}
-          </>
-        )}
-      </>
-    )} */}
       </div>
     </>
   );
