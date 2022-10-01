@@ -10,7 +10,7 @@ import "./Navbar.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../actions/auth";
+import { getAdminStatus, login } from "../../actions/auth";
 import logo from "./logo.png";
 import { setCurrentUser } from "../../actions/currentUser";
 import LoginPageBlure from "./LoginPageBlure/LoginPageBlure";
@@ -48,7 +48,8 @@ export default function Navbar() {
     setBlurPage(false);
   };
   const onLogoutSuccess = () => {
-    dispatch(setCurrentUser());
+    dispatch(setCurrentUser("logout"));
+    dispatch(getAdminStatus());
     alert("Log out Succesfully");
     setBlurPage(false);
   };
@@ -66,14 +67,12 @@ export default function Navbar() {
             <div className="Auth_Conatiner_navbar">
               {currentUser ? (
                 <>
-                  <div className="Chanel_logo_App">
-                    <p
-                      className="fstChar_logo_App"
-                      onClick={() => onLogoutSuccess()}
-                    >
-                      <BiLogOutCircle size={50} />
-                    </p>
-                  </div>
+                  <p
+                    className="sign_in_Navbar"
+                    onClick={() => onLogoutSuccess()}
+                  >
+                    <BiLogOutCircle size={50} />
+                  </p>
                 </>
               ) : (
                 <>
