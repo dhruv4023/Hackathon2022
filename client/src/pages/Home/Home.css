@@ -1,0 +1,8 @@
+.home_cont{
+    /* border: 2px solid; */
+    display: flex;
+    flex-wrap: wrap;
+}
+.Introduction{
+    flex-grow: 2;
+}

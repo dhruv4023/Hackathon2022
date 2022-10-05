@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
+import "./Components/TextAnimation.css";
 import Navbar from "./Components/Navbar/Navbar";
 import { BrowserRouter as Router } from "react-router-dom";
 import AllRoutes from "./Components/AllRoutes";
