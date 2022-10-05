@@ -1,4 +1,4 @@
-import SubmitForm from "../models/SubmitForm.js";
+import SubmitForm from "../models/submitForm.js";
 import mongoose from "mongoose";
 import fs from "fs";
 export const postSubmitForm = async (req, res) => {

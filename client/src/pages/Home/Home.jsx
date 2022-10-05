@@ -14,7 +14,7 @@ function Home() {
         </div>
         <div className="home_cont">
           <div className="Introduction">
-            <StaffDetails/>
+            
           </div>
           <Annoucement />
         </div>

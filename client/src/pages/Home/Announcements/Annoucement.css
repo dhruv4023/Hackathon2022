@@ -1,0 +1,28 @@
+.container_Annoucement {
+  height: 30rem;
+  width: 20rem;
+  margin:  0.3rem auto;
+  /* border: 2px solid; */
+  box-shadow: 1px 1px 5px grey, -1px 1px 5px grey, 1px -1px 5px grey,
+    -1px -1px 5px grey;
+  border-radius: 0.2rem;
+
+}
+.annoucement_List {
+  margin: 0.1rem 0.2rem;
+  font-size: medium;
+  overflow-y: auto;
+  height: calc(100% - 3.5rem);
+}
+.lst_item_ann {
+  display: flex;
+  border-bottom: 2px solid;
+  margin: 0.2rem 0.1rem;
+}
+.ball {
+  height: 1rem;
+  width: 1rem;
+  margin: auto 0.2rem;
+  border-radius: 100%;
+  background:  radial-gradient(rgb(151, 164, 8), black);
+}

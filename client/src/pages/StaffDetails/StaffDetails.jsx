@@ -11,7 +11,7 @@ function StaffDetails({ setStaffAddData }) {
     <div className="container_app1">
       <div className="container_app2">
         <div className="heding_App">
-          Staff Details
+          Staff details
           {adminUser && (
             <div className="add_new_btn" onClick={() => setStaffAddData(true)}>
               Add Staff Service

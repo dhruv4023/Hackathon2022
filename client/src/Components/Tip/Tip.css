@@ -1,0 +1,10 @@
+.Tip_container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 2rem;
+    padding: 0.2rem;
+    font-size: small;
+    width: fit-content;
+}

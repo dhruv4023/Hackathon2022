@@ -1,0 +1,16 @@
+.container_Slides {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  box-shadow: 1px 1px 5px grey, -1px 1px 5px grey, 1px -1px 5px grey,
+    -1px -1px 5px grey;
+    margin: 0.3rem;
+}
+.img_Slider {
+  width: 100%;
+  height: 100%;
+  size: 100% 100%;
+}
+.img_c {
+  animation: secondary 3s linear infinite;
+}

@@ -29,11 +29,11 @@ function StaffN({ adminUser, _id, _name, _email, _post, _pic }) {
         />
       </div>
 
-      <div className="details_staffN">
+      <address className="details_staffN">
         <div className="name_staffN">{_name}</div>
-        <div className="email_staffN">{_email}</div>
+        <a href={`mailto:${_email}`} className="email_staffN">{_email}</a>
         <div className="post_staffN">{_post}</div>
-      </div>
+      </address>
     </div>
   );
 }

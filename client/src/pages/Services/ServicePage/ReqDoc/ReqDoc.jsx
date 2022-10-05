@@ -26,7 +26,7 @@ function ReqDoc({ servN, Sid, adminUser }) {
   return (
     <div className="part_cont_servicePage">
       <div className="headings_servisesPage">
-        <div className="heading_txt_servisesPage">Require Documents :</div>
+        <div className="heading_txt_servisesPage">Required Documents :</div>
         {adminUser && (
           <b className="add_btn_servicePage">
             <AddInoutBox

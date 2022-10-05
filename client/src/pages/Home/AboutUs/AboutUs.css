@@ -1,0 +1,25 @@
+.AboutUs_Cont {
+  width: 100%;
+  box-shadow: 1px 1px 5px grey, -1px 1px 5px grey, 1px -1px 5px grey,
+    -1px -1px 5px grey;
+  border-radius: 0.2rem;
+padding: 0.2rem;
+}
+.address_aboutus {
+  margin: 0.2rem;
+  padding: 0.1rem;
+  color: darkblue;
+  font-size: large;
+  text-decoration: none;
+  font-style: italic;
+  font-weight: 500;
+  display: flex;
+}
+.title_aboutus {
+  width: 5rem;
+  /* border: 1px solid; */
+}
+.data_aboutus {
+  /* border: 1px solid; */
+  width: calc(100% - 5rem);
+}
