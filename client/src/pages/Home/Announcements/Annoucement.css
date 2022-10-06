@@ -13,18 +13,31 @@
   overflow-y: auto;
   height: calc(100% - 3.5rem);
 }
+.lst_item_ann2 {
+  box-shadow: 1px 1px 5px grey, -1px 1px 5px grey, 1px -1px 5px grey,
+    -1px -1px 5px grey;
+  margin: 0.5rem 0.2rem;
+}
 .lst_item_ann {
   display: flex;
-  border-bottom: 2px solid;
   margin: 0.2rem 0.1rem;
 }
 .ball {
   height: 1rem;
   width: 1rem;
-  margin: auto 0.2rem;
+  margin: 0.5rem 0.2rem;
   animation: animateClr 5s linear infinite;
   border-radius: 100%;
   background: radial-gradient(rgb(151, 164, 8), rgba(0, 0, 0, 0.942));
+}
+.annouce_list_text{
+  flex-grow: 1;
+}
+.annouce_list_date{
+  /* border: 1px solid; */
+  padding: 0 2rem ;
+  font-weight: 500;
+  color: rgba(128, 128, 128, 0.681);
 }
 .add_btn_ann {
   color: rgb(83, 83, 189);

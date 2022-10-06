@@ -63,6 +63,7 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
       for (let i = 0; i < docs.length; i++) {
         if (docs[i]) {
           const fileData = new FormData();
+          fileData.append("id", fId);
           fileData.append("title", docsNm[i]);
           fileData.append("file", docs[i]);
           dispatch(

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { posthomedata } from "../../../actions/homedata";
 import DisplayInputEditDelForAnnouncement from "../../../Components/DisplayEditInputBox/DisplayInputEditDelForAnnouncement";
 import "./Annoucement.css";
+import moment from "moment";
 function Annoucement() {
   const arryNm = "Annoucement";
   const adminUser = useSelector((s) => s.authReducer)?.data;
@@ -40,17 +41,24 @@ function Annoucement() {
           <>
             {annoucementList?.map((m) => {
               return (
-                <li key={m?.id} className="lst_item_ann">
-                  <div>
-                    <div className="ball"></div>
+                <div className="lst_item_ann2">
+                  <div className="lst_item_ann" key={m?.id}>
+                    <div>
+                      <div className="ball"></div>
+                    </div>
+                    <div className="annouce_list_text">
+                      <DisplayInputEditDelForAnnouncement
+                        _id={m?._id}
+                        textTodisplay={m?.arryData}
+                        adminUser={adminUser}
+                        arryNm={arryNm}
+                      />
+                    </div>
                   </div>
-                  <DisplayInputEditDelForAnnouncement
-                    _id={m?._id}
-                    textTodisplay={m?.arryData}
-                    adminUser={adminUser}
-                    arryNm={arryNm}
-                  />
-                </li>
+                  <i className="annouce_list_date">
+                    announced {moment(m?.PostedOn).fromNow()}
+                  </i>
+                </div>
               );
             })}
           </>

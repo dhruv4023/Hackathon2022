@@ -27,11 +27,15 @@ function FormView({ currentUsersFormData, LableArray }) {
               </div>
             );
           })}
-        <div  className="InputField_cont_servicePage">
+        <div className="InputField_cont_servicePage">
           <div className="label_FormSubmit">Form Submited on</div>
           <div className="inputTag_FormSubmit">
             :{moment(obj["ServicedOn"]).format("DD/MM/YYYY")}
           </div>
+        </div>
+        <div className="InputField_cont_servicePage">
+          <div className="label_FormSubmit">Form Id</div>
+          <div className="inputTag_FormSubmit">:{obj["_id"]}</div>
         </div>
       </div>
     </>
