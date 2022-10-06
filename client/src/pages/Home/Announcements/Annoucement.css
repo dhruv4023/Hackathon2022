@@ -1,6 +1,6 @@
 .container_Annoucement {
   height: 30rem;
-  width: 20rem;
+  width: 100%;
   margin: 0.3rem auto;
   /* border: 2px solid; */
   box-shadow: 1px 1px 5px grey, -1px 1px 5px grey, 1px -1px 5px grey,
@@ -22,12 +22,21 @@
   height: 1rem;
   width: 1rem;
   margin: auto 0.2rem;
+  animation: animateClr 5s linear infinite;
   border-radius: 100%;
-  background: radial-gradient(rgb(151, 164, 8), black);
+  background: radial-gradient(rgb(151, 164, 8), rgba(0, 0, 0, 0.942));
 }
 .add_btn_ann {
   color: rgb(83, 83, 189);
 }
 .add_btn_ann:hover {
   color: blue;
+}
+@keyframes animateClr {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
 }
