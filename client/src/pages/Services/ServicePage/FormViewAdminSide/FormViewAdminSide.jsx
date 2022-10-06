@@ -13,7 +13,7 @@ function FormViewAdminSide() {
   const SubmitedFormData = useSelector(
     (s) => s.submitFormReducer
   )?.data?.filter((q) => q?.ServiceId === Sid && q._id === sFId)[0];
-  console.log(SubmitedFormData);
+  // console.log(SubmitedFormData);
   const LableFiedl = useSelector((s) => s.serviceReducer)
     ?.data?.filter((q) => q?._id === Sid)
     ?.map((m) => m)[0]?.LabelField;
@@ -23,7 +23,7 @@ function FormViewAdminSide() {
       dispatch(updateFormStatus(id));
     }
   };
-console.log(SubmitedFormData?.status)
+// console.log(SubmitedFormData?.status)
   return (
     <>
       <div className="container_app1">

@@ -57,6 +57,13 @@
 .edit_Btn_app:hover {
   color: blue;
 }
+.loading_App {
+  height: 50vh;
+  display: flex;
+}
+.loading_App2 {
+  margin: auto;
+}
 
 /***************************/
 @media (max-width: 1250px) {
@@ -82,12 +89,11 @@ select {
   border: none;
   box-shadow: 1px 1px 1px grey, -1px 1px 1px grey, 1px -1px 1px grey,
     -1px -1px 1px grey;
-    padding: 0.2rem;
-    margin: 0.2rem;
-    border-radius: 0.2rem;
-    outline-style: none;
+  padding: 0.2rem;
+  margin: 0.2rem;
+  border-radius: 0.2rem;
+  outline-style: none;
 }
-select:hover{
+select:hover {
   background-color: rgba(128, 128, 128, 0.249);
 }
-

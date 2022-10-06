@@ -10,7 +10,7 @@ function SubmitedFormList({ Sid, servN }) {
   // console.log(SubmitedFormData.length);
   return (
     <>
-      {SubmitedFormData.length === 0 ? (
+      {SubmitedFormData?.length === 0 ? (
         <div
           className="heading_txt_servisesPage"
           style={{ textAlign: "center" }}
@@ -30,6 +30,7 @@ function SubmitedFormList({ Sid, servN }) {
               .map((m) => {
                 return (
                   <Link
+                    key={m?._id}
                     to={`/services/submitedForm/${m?._id}/${Sid}`}
                     className="list_item_submitedFormLst"
                   >

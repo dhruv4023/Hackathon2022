@@ -1,14 +1,21 @@
-import express from 'express'
+import express from "express";
 
-import { postService, deleteService, getService,editService } from '../controllers/Service.js'
+import {
+  postService,
+  deleteService,
+  getService,
+  editService,
+} from "../controllers/Service.js";
 
-import auth from '../middlewares/auth.js'
+import auth from "../middlewares/auth.js";
 
-const router = express.Router()
+import adminAuth from "../middlewares/adminAuth.js";
 
-router.post('/post', postService)
-router.get('/get', getService)
-router.delete('/delete/:id', deleteService)
-router.patch('/edit/:id', editService)
+const router = express.Router();
 
-export default router
+router.post("/post", adminAuth, postService);
+router.get("/get", getService);
+router.delete("/delete/:id", adminAuth, deleteService);
+router.patch("/edit/:id", adminAuth, editService);
+
+export default router;

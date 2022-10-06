@@ -35,7 +35,6 @@ function FormFileFields({ adminUser, Sid, servN, currentUsersFormData }) {
   const toRemove = new Set(servN?.LabelDocs);
 
   const LableDocArray = AllLableDocArray.filter((x) => !toRemove.has(x));
-  // console.log(toRemove);
 
   return (
     <>

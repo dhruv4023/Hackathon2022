@@ -1,60 +1,68 @@
 import React from "react";
-import DisplayEditInputBox from "../../../Components/DisplayEditInputBox/DisplayEditInputBox";
+import { ImPlus } from "react-icons/im";
+import spin from "../../../Components/Navbar/LoginPageBlure/spin.gif";
+
+import { useDispatch, useSelector } from "react-redux";
+import { posthomedata } from "../../../actions/homedata";
+import DisplayInputEditDelForAnnouncement from "../../../Components/DisplayEditInputBox/DisplayInputEditDelForAnnouncement";
 import "./Annoucement.css";
 function Annoucement() {
+  const arryNm = "Annoucement";
+  const adminUser = useSelector((s) => s.authReducer)?.data;
+  const annoucementList = useSelector((s) => s.homedataReducer)
+    ?.data?.filter((q) => (q.arryNm = arryNm))
+    ?.reverse();
+  const dispatch = useDispatch();
+  // console.log(annoucementList);
+  const handlePostAnnouceMent = () => {
+    dispatch(
+      posthomedata({
+        arryNm: arryNm,
+        arryData: "Enter Annoucement...",
+      })
+    );
+  };
   return (
     <div className="container_Annoucement">
-      <div className="heding_App">Anouncements</div>
+      <div className="heding_App">
+        <i>Anouncements</i>
+        {adminUser && (
+          <ImPlus
+            onClick={() => handlePostAnnouceMent()}
+            style={{ margin: "auto 0.2rem" }}
+            className={"add_btn_ann"}
+            size={22}
+          />
+        )}
+      </div>
       <div className="annoucement_List">
-        <DisplayEditInputBox />
-        <li className="lst_item_ann">
-          <div>
-            <div className="ball"></div>
-          </div>
-          <div className="animate_charcter">
-            {" "}
-            helooccc o,mkjnnk kmiojij ihoooooooo helooccc o,mkjnnk kmiojij
-            helooccc o,mkjnnk kmiojij ihoooooooo helooccc o,mkjnnk kmiojij
-            helooccc o,mkjnnk kmiojij ihoooooooo helooccc o,mkjnnk kmiojij
-            ihoooooooo
-          </div>
-        </li>
-        <li className="lst_item_ann">
-          <div>
-            <div className="ball"></div>
-          </div>
-          <div className="animate_charcter">
-            {" "}
-            helooccc o,mkjnnk kmiojij ihoooooooo helooccc o,mkjnnk kmiojij
-            helooccc o,mkjnnk kmiojij ihoooooooo helooccc o,mkjnnk kmiojij
-            helooccc o,mkjnnk kmiojij ihoooooooo helooccc o,mkjnnk kmiojij
-            ihoooooooo
-          </div>
-        </li>
-        <li className="lst_item_ann">
-          <div>
-            <div className="ball"></div>
-          </div>
-          <div className="animate_charcter">
-            {" "}
-            helooccc o,mkjnnk kmiojij ihoooooooo helooccc o,mkjnnk kmiojij
-            helooccc o,mkjnnk kmiojij ihoooooooo helooccc o,mkjnnk kmiojij
-            helooccc o,mkjnnk kmiojij ihoooooooo helooccc o,mkjnnk kmiojij
-            ihoooooooo
-          </div>
-        </li>
-        <li className="lst_item_ann">
-          <div>
-            <div className="ball"></div>
-          </div>
-          <div className="animate_charcter">
-            {" "}
-            helooccc o,mkjnnk kmiojij ihoooooooo helooccc o,mkjnnk kmiojij
-            helooccc o,mkjnnk kmiojij ihoooooooo helooccc o,mkjnnk kmiojij
-            helooccc o,mkjnnk kmiojij ihoooooooo helooccc o,mkjnnk kmiojij
-            ihoooooooo
-          </div>
-        </li>
+        {annoucementList ? (
+          <>
+            {annoucementList?.map((m) => {
+              return (
+                <li key={m?.id} className="lst_item_ann">
+                  <div>
+                    <div className="ball"></div>
+                  </div>
+                  <DisplayInputEditDelForAnnouncement
+                    _id={m?._id}
+                    textTodisplay={m?.arryData}
+                    adminUser={adminUser}
+                    arryNm={arryNm}
+                  />
+                </li>
+              );
+            })}
+          </>
+        ) : (
+          <>
+            <div className="loading_App">
+              <div className="loading_App2">
+                <img src={spin} alt="Loading..." />
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

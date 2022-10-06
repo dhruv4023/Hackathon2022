@@ -1,6 +1,8 @@
 import React from "react";
 import StaffN from "./StaffN";
 import "./staffDetails.css";
+import spin from "../../Components/Navbar/LoginPageBlure/spin.gif";
+
 import { useSelector } from "react-redux";
 function StaffDetails({ setStaffAddData }) {
   const staffDetails = useSelector((s) => s.staffReducer)?.data;
@@ -20,19 +22,32 @@ function StaffDetails({ setStaffAddData }) {
         </div>
 
         <div className="staff_container">
-          {staffDetails?.map((m) => {
-            return (
-              <StaffN
-                adminUser={adminUser}
-                key={m?._d}
-                _pic={m?.picPath}
-                _id={m?._id}
-                _name={m?.name}
-                _email={m?.email}
-                _post={m?.post}
-              />
-            );
-          })}
+          {staffDetails ? (
+            <>
+              {staffDetails?.map((m) => {
+                return (
+                  <StaffN
+                    adminUser={adminUser}
+                    key={m?._d}
+                    _pic={m?.picPath}
+                    _id={m?._id}
+                    _name={m?.name}
+                    _email={m?.email}
+                    _post={m?.post}
+                  />
+                );
+              })}
+            </>
+          ) : (
+            <>
+              {" "}
+              <div className="loading_App">
+                <div className="loading_App2">
+                  <img src={spin} alt="Loading..." />
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

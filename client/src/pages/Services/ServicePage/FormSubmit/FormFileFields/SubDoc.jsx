@@ -1,9 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import {
-  ImCheckboxChecked,
-  ImCheckboxUnchecked,
-} from "react-icons/im";
+import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { useDispatch } from "react-redux";
 import { editService } from "../../../../../actions/service";
 import { editSubmitForm } from "../../../../../actions/submitform";
@@ -11,12 +8,15 @@ import DocsView from "../../FormView/DocsView";
 import FileField from "./FileField";
 import "./FormFileFields.css";
 function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
+  const uploadedDocsObj = currentUsersFormData?.docFilePic;
+  const uploadedDocArr = uploadedDocsObj?.filter((q) => q).map((m) => m.titleP);
+  const labelDocArr = servN?.LabelDocs;
+  // console.log(labelDocArr)
   const [uploading, setUploading] = useState(0);
   const [aadharCard, setAadharCard] = useState("");
   const [Rationcard, setRationcard] = useState("");
   const [EleCard, setEleCard] = useState("");
   const [lcCerti, setLcCerti] = useState("");
-  const labelDocArr = servN?.LabelDocs;
   const singleFileOptions = {
     onUploadProgress: (progressEvent) => {
       const { loaded, total } = progressEvent;
@@ -34,17 +34,31 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
     "Election Card": setEleCard,
     "Leaving Certificate": setLcCerti,
   };
+  // console.log(uploadedDocArr, uploadedDocsObj);
+
+  const constraintOnFile = (file, LabelName) => {
+    console.log(file.size);
+    if (
+      !file &&
+      labelDocArr.includes(LabelName) &&
+      !uploadedDocArr.includes(LabelName)
+    ) {
+      alert("Please Attach " + LabelName);
+      return true;
+    } else if (file.size > 500000) {
+      alert("Please Attach " + LabelName + " less than size of 500KB");
+      return true;
+    } else {
+      return false;
+    }
+  };
   const handleFileupload = () => {
     const docsNm = Object.keys(lableSetArr);
     const docs = [aadharCard, Rationcard, EleCard, lcCerti];
-    if (!aadharCard && labelDocArr.includes("Aadhar Card")) {
-      alert("Plz Attach Aadhar Card");
-    } else if (!Rationcard && labelDocArr.includes("Ration Card")) {
-      alert("Plz Attach Ration Card");
-    } else if (!EleCard && labelDocArr.includes("Election Card")) {
-      alert("Plz Attach Election Card");
-    } else if (!lcCerti && labelDocArr.includes("Leaving Certificate")) {
-      alert("Plz Attach Leaving Certificate");
+    if (constraintOnFile(aadharCard, "Aadhar Card")) {
+    } else if (constraintOnFile(Rationcard, "Ration Card")) {
+    } else if (constraintOnFile(EleCard, "Election Card")) {
+    } else if (constraintOnFile(lcCerti, "Leaving Certificate")) {
     } else {
       for (let i = 0; i < docs.length; i++) {
         if (docs[i]) {
@@ -52,11 +66,14 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
           fileData.append("title", docsNm[i]);
           fileData.append("file", docs[i]);
           dispatch(
-            editSubmitForm({
-              id: fId,
-              fileData,
-              singleFileOptions,
-            })
+            editSubmitForm(
+              {
+                id: fId,
+                fileData,
+                singleFileOptions,
+              },
+              setUploading
+            )
           );
         }
       }
@@ -74,35 +91,30 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
       })
     );
   };
-  const uploadedDocsObj = currentUsersFormData?.docFilePic;
-  const uploadedDocArr = uploadedDocsObj?.filter((q) => q).map((m) => m.titleP);
   return (
     <>
-      <>
+      <div>
         {Object.keys(lableSetArr)
           ?.filter(
             (q) => labelDocArr?.includes(q) && !uploadedDocArr?.includes(q)
           )
           ?.map((m) => {
             return (
-              <>
-                <FileField
-                  key={m}
-                  adminUser={adminUser}
-                  handleDelLabel={handleDelLabel}
-                  lableInput={m}
-                  setFile_={lableSetArr[m]}
-                  uploading={uploading}
-                />
-              </>
+              <FileField
+                key={m}
+                adminUser={adminUser}
+                handleDelLabel={handleDelLabel}
+                lableInput={m}
+                setFile_={lableSetArr[m]}
+                uploading={uploading}
+              />
             );
           })}
         <DocsView
           uploadedDocsObj={uploadedDocsObj}
           uploadedDocArr={uploadedDocArr}
         />
-      </>
-
+      </div>
       <div className="submitBtn_formSubmit">
         {fId && (
           <>

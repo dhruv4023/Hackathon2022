@@ -19,6 +19,7 @@ import doubtRoutes from "./routes/doubt.js";
 import commentRoutes from './routes/Comment.js'
 import serviceRoutes from './routes/Service.js'
 import submitformRoutes from './routes/submitForm.js'
+import homedataRoutes from './routes/homePage.js'
 
 app.get("/", (req, res) => {
   res.send("Server Started");
@@ -32,6 +33,7 @@ app.use("/doubt", doubtRoutes);
 app.use('/comments',commentRoutes)
 app.use('/service',serviceRoutes)
 app.use('/submitform',submitformRoutes)
+app.use('/homedata',homedataRoutes)
 
 
 

@@ -11,6 +11,7 @@ import { getAllcomments } from "./actions/comments";
 import { getAllService } from "./actions/service";
 import { getAllsubmitforms } from "./actions/submitform";
 import { getAdminStatus } from "./actions/auth";
+import { getAllhomedatas } from "./actions/homedata";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function App() {
     dispatch(getAllService());
     dispatch(getAllsubmitforms());
     dispatch(getAdminStatus());
+    dispatch(getAllhomedatas());
   }, [dispatch]);
 
   return (

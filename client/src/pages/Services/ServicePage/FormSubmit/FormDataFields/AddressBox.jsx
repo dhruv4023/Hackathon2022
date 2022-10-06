@@ -118,11 +118,10 @@ function AddressBox({ adminUser, setVillage, LableArray, handleDelLabel }) {
 
   return (
     <>
-      {Object.keys(addbox).map((m) => {
-        return (LableArray?.includes(m) && (
-          <>
-            {" "}
-            <div className="InputField_cont_servicePage">
+      {Object.keys(addbox).map((m, i) => {
+        return (
+          LableArray?.includes(m) && (
+            <div key={i++} className="InputField_cont_servicePage">
               <div className="label_FormSubmit">
                 <>{m}</>
                 <>
@@ -135,47 +134,45 @@ function AddressBox({ adminUser, setVillage, LableArray, handleDelLabel }) {
               </div>
               <div className="inputTag_FormSubmit">:{addbox[m]}</div>
             </div>
-          </>
-        ));
+          )
+        );
       })}
       <>
-        {
-          (LableArray?.includes("Village") && (
-            <>
-              <div className="InputField_cont_servicePage">
-                <div className="label_FormSubmit">
-                  Village
-                  {adminUser && (
-                    <b
-                      onClick={() => handleDelLabel("Village")}
-                      className="Del_app"
-                    >
-                      <BsFillTrashFill />
-                    </b>
-                  )}
-                </div>
-                <div className="inputTag_FormSubmit">
-                  :
-                  <select
-                    onChange={(e) => {
-                      setVillage(
-                        e.target.value === "select" ? null : e.target.value
-                      );
-                    }}
+        {LableArray?.includes("Village") && (
+          <>
+            <div className="InputField_cont_servicePage">
+              <div className="label_FormSubmit">
+                Village
+                {adminUser && (
+                  <b
+                    onClick={() => handleDelLabel("Village")}
+                    className="Del_app"
                   >
-                    {villages.map((vlj) => {
-                      return (
-                        <option key={vlj} value={vlj}>
-                          {vlj}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
+                    <BsFillTrashFill />
+                  </b>
+                )}
               </div>
-            </>
-          ))
-        }
+              <div className="inputTag_FormSubmit">
+                :
+                <select
+                  onChange={(e) => {
+                    setVillage(
+                      e.target.value === "select" ? null : e.target.value
+                    );
+                  }}
+                >
+                  {villages.map((vlj) => {
+                    return (
+                      <option key={vlj} value={vlj}>
+                        {vlj}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
+          </>
+        )}
       </>
     </>
   );

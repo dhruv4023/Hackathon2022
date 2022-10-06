@@ -6,7 +6,7 @@ export const setCurrentUser = (s) => {
     }else if(s==="logout"){
         localStorage.clear();
     }
-    console.log(s,data)
+    // console.log(s,data)
     return {
         type: 'FETCH_CURRENT_USER', 
         payload: data

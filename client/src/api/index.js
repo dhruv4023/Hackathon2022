@@ -12,6 +12,10 @@ API.interceptors.request.use((req) => {
 export const login = (authData) => API.post('/user/login', authData);
 export const getAdminStatus = () => API.get('/user/admin');
 
+export const posthomedata = (homedataData) => API.post(`/homedata/post`, homedataData)
+export const deletehomedata = (id) => API.delete(`/homedata/delete/${id}`)
+export const edithomedata = (id, arryData) => API.patch(`/homedata/edit/${id}`, { arryData })
+export const getAllhomedata = () => API.get('/homedata/get');
 
 export const postService = (serviceData) => API.post(`/service/post`, serviceData)
 export const editService = (id, serviceBody) => API.patch(`/service/edit/${id}`, { serviceBody })

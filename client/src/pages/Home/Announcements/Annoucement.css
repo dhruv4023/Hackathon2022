@@ -1,12 +1,11 @@
 .container_Annoucement {
   height: 30rem;
   width: 20rem;
-  margin:  0.3rem auto;
+  margin: 0.3rem auto;
   /* border: 2px solid; */
   box-shadow: 1px 1px 5px grey, -1px 1px 5px grey, 1px -1px 5px grey,
     -1px -1px 5px grey;
   border-radius: 0.2rem;
-
 }
 .annoucement_List {
   margin: 0.1rem 0.2rem;
@@ -24,5 +23,11 @@
   width: 1rem;
   margin: auto 0.2rem;
   border-radius: 100%;
-  background:  radial-gradient(rgb(151, 164, 8), black);
+  background: radial-gradient(rgb(151, 164, 8), black);
+}
+.add_btn_ann {
+  color: rgb(83, 83, 189);
+}
+.add_btn_ann:hover {
+  color: blue;
 }

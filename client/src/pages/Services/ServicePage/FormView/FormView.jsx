@@ -15,7 +15,9 @@ function FormView({ currentUsersFormData, LableArray }) {
                 <div className="label_FormSubmit">{k}</div>
                 {k === "DOB" ? (
                   <>
-                    <div className="inputTag_FormSubmit">:{moment(obj[k]).format("DD/MM/YYYY")}</div>
+                    <div className="inputTag_FormSubmit">
+                      :{moment(obj[k]).format("DD/MM/YYYY")}
+                    </div>
                   </>
                 ) : (
                   <>
@@ -25,6 +27,12 @@ function FormView({ currentUsersFormData, LableArray }) {
               </div>
             );
           })}
+        <div  className="InputField_cont_servicePage">
+          <div className="label_FormSubmit">Form Submited on</div>
+          <div className="inputTag_FormSubmit">
+            :{moment(obj["ServicedOn"]).format("DD/MM/YYYY")}
+          </div>
+        </div>
       </div>
     </>
   );

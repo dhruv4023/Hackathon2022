@@ -3,10 +3,10 @@ import { VscAdd } from "react-icons/vsc";
 import { useSelector } from "react-redux";
 import ServiceN from "./ServiceN";
 import "./services.css";
+import spin from "../../Components/Navbar/LoginPageBlure/spin.gif";
 function Services({ setAddserviceData }) {
   const serviceList = useSelector((s) => s.serviceReducer)?.data;
-  // console.log(serviceList);
-
+  // console.log(serviceList);\
   const adminUser = useSelector((s) => s.authReducer)?.data;
 
   return (
@@ -24,9 +24,19 @@ function Services({ setAddserviceData }) {
           )}
         </div>
         <div className="services_list">
-          {serviceList?.map((m) => {
-            return <ServiceN key={m?._id} NthService={m} />;
-          })}
+          {serviceList ? (
+            <>
+              {serviceList?.map((m) => {
+                return <ServiceN key={m?._id} NthService={m} />;
+              })}
+            </>
+          ) : (
+            <div className="loading_App">
+              <div className="loading_App2">
+                <img src={spin} alt="Loading..." />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
