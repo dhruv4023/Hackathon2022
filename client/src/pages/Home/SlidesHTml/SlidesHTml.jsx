@@ -14,13 +14,7 @@ function SlidesHTml() {
           <img src={img5} className={"img_Slider"} alt="" />
         </div>
       </div>
-      {/* <div className="container_Slides">
-        <div className="container2_Slides">
-          <div className="image_container">
-            <img src={img1} alt="" className="imgS" />
-          </div>
-        </div>
-      </div> */}
+
     </>
   );
 }

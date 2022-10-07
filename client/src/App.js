@@ -16,13 +16,15 @@ import { getAllhomedatas } from "./actions/homedata";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllStaffDetails());
-    dispatch(getAllDoubt());
-    dispatch(getAllcomments());
-    dispatch(getAllService());
-    dispatch(getAllsubmitforms());
-    dispatch(getAdminStatus());
-    dispatch(getAllhomedatas());
+    setInterval(() => {
+      dispatch(getAllStaffDetails());
+      dispatch(getAllDoubt());
+      dispatch(getAllcomments());
+      dispatch(getAllService());
+      dispatch(getAllsubmitforms());
+      dispatch(getAdminStatus());
+      dispatch(getAllhomedatas());
+    }, 2000);
   }, [dispatch]);
 
   return (

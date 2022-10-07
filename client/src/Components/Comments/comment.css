@@ -45,10 +45,10 @@
   border: 2px solid rgba(255, 127, 80, 0.193);
   margin: 0.7rem 0.5rem;
   border-radius: 0.5rem;
-  background-color: whitesmoke;
+  background-color: rgba(246, 227, 108, 0.4);
 }
 .displayComment_commentsPage {
-  background-color: rgba(127, 255, 212, 0.2);
+  background-color: whitesmoke;
   padding: 1rem;
   overflow-x: auto;
   border-bottom: 1px solid grey;

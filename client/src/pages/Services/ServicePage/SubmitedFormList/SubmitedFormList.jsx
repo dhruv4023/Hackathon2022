@@ -20,7 +20,7 @@ function SubmitedFormList({ Sid, servN }) {
       ) : (
         <>
           <div className="headings_servisesPage">
-            <div className="heading_txt_servisesPage">SubmitedFormList</div>
+            <div className="heading_txt_servisesPage">Submited Form List</div>
           </div>
           <div className="submitedForm_List_Cont">
             {SubmitedFormData?.filter(
@@ -34,7 +34,7 @@ function SubmitedFormList({ Sid, servN }) {
                     to={`/services/submitedForm/${m?._id}/${Sid}`}
                     className="list_item_submitedFormLst"
                   >
-                    {m?.Name}
+                    {m.Name!=="" ? <>{m?.Name}</> : <>{m?._id}</>}
                   </Link>
                 );
               })}
