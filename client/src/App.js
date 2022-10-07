@@ -14,9 +14,11 @@ import { getAdminStatus } from "./actions/auth";
 import { getAllhomedatas } from "./actions/homedata";
 
 function App() {
+  console.log(process.env.REACT_APP_SERVER)
+  
   const dispatch = useDispatch();
   useEffect(() => {
-    setInterval(() => {
+    // setInterval(() => {
       dispatch(getAllStaffDetails());
       dispatch(getAllDoubt());
       dispatch(getAllcomments());
@@ -24,7 +26,7 @@ function App() {
       dispatch(getAllsubmitforms());
       dispatch(getAdminStatus());
       dispatch(getAllhomedatas());
-    }, 2000);
+    // }, 2000);
   }, [dispatch]);
 
   return (

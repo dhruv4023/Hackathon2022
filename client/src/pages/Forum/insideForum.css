@@ -19,21 +19,7 @@
 .comments_num_forum i {
   margin: auto;
 }
-.doubt_forum {
-  position: relative;
-  text-decoration: none;
-  color: black;
-  margin: auto 0;
-  padding: 0.3rem;
-  flex-grow: 1;
-  min-height: 4rem;
-  transition: all 0.5s;
-  overflow-wrap: break-word;
-}
-.doubt_forum:hover {
-    color: rgb(83, 27, 195);
-    font-size: 1.5rem;
- }
+
 .btns_insideForum{
     right: 0;
     height: 100;

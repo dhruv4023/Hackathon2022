@@ -39,7 +39,9 @@ function EditDElDoubt({ m, currentUser }) {
         <Link to={`/forum/${m?._id}`} className="doubt_forum">
           <>
             {String(m?.doubtBody).length < 80 ? (
-              <>{(m?.doubtBody)}</>
+              <>
+              {(m?.doubtBody)}
+              </>
             ) : (
               <>{String(m?.doubtBody).substring(0, 78)}...</>
             )}

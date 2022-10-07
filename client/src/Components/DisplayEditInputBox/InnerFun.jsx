@@ -14,7 +14,7 @@ function InnerFun({
   handleEdit,
   edit,
 }) {
-  console.log(adminUser);
+  // console.log(adminUser);
   return (
     <div className="cont_DisplayEditInputBox">
       {edit ? (

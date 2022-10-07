@@ -4,7 +4,10 @@
   font-size: 3rem;
   font-weight: bolder;
   color: rgb(41, 33, 101);
-  position: relative;
+  position: relative;  text-shadow: 1px 1px 2px grey, -1px 1px 2px grey;
+}
+@media (max-width:700px){
+  .heading_service{font-size: 2rem;}
 }
 .services_list {
   padding: 0.5rem 0;

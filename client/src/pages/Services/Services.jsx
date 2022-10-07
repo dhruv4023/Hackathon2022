@@ -12,7 +12,7 @@ function Services({ setAddserviceData }) {
   return (
     <div className="container_app1">
       <div className="container_app2">
-        <div className="heading_service heding_App">
+        <div className="heading_service">
           Services
           {adminUser && (
             <div

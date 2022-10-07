@@ -1,5 +1,4 @@
 import React from "react";
-import StaffDetails from "../StaffDetails/StaffDetails";
 import AboutUs from "./AboutUs/AboutUs";
 import Annoucement from "./Announcements/Annoucement";
 
@@ -13,8 +12,7 @@ function Home() {
           <SlidesHTml />
         </div>
         <div className="home_cont">
-          <div className="Introduction">
-            
+          <div className="Introduction"> 
           </div>
           <Annoucement />
         </div>

@@ -43,7 +43,7 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
   // console.log(uploadedDocArr, uploadedDocsObj);
   // console.log(uploadedDocArr);
   const constraintOnFile = (file, LabelName) => {
-    console.log(file.size);
+    // console.log(file.size);
     if (
       !file &&
       labelDocArr.includes(LabelName) &&
@@ -137,12 +137,22 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
         {fId && (
           <>
             {uploadedDocsObj.length !== labelDocArr.length ? (
-              <input
-                onClick={() => handleFileupload()}
-                className="ibtn_AddData"
-                value={"Upload"}
-                type="submit"
-              />
+              <>
+                {uploading === 0 ? (
+                  <>
+                    <input
+                      onClick={() => handleFileupload()}
+                      className="ibtn_AddData"
+                      value={"Upload"}
+                      type="submit"
+                    />
+                  </>
+                ) : (
+                  <>
+                  
+                  </>
+                )}
+              </>
             ) : (
               <>
                 <b className="Status_subDoc">

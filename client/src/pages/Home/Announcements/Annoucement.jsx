@@ -8,6 +8,7 @@ import DisplayInputEditDelForAnnouncement from "../../../Components/DisplayEditI
 import "./Annoucement.css";
 import moment from "moment";
 function Annoucement() {
+  let i = 0;
   const arryNm = "Annoucement";
   const adminUser = useSelector((s) => s.authReducer)?.data;
   const annoucementList = useSelector((s) => s.homedataReducer)

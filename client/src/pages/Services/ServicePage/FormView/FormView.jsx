@@ -3,7 +3,6 @@ import "./FormView.css";
 import moment from "moment";
 function FormView({ currentUsersFormData, LableArray }) {
   const obj = currentUsersFormData;
-  // console.log(obj,LableArray);
   return (
     <>
       <div className="SubmitedData_FormView">
