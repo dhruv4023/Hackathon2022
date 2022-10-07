@@ -250,28 +250,3 @@ function FieldList({ adminUser, Sid, currentUser, LableArray }) {
 }
 
 export default FieldList;
-// Name
-// ,NameOfFather
-// ,Age
-// ,AadharcardNo
-// ,Address
-// ,Taluka
-// ,District
-// ,Pincode
-// ,Gender
-
-/*
-      const allData = new FormData();
-      allData.append("Name", sName + " " + fName + " " + lName);
-      allData.append("NameOfFather", fatherName);
-      allData.append("DOB", dob);
-      allData.append("AadharcardNo", aadharcardNo);
-      allData.append("Address", address);
-      allData.append("Taluka", "Palanpur");
-      allData.append("District", "Banaskantha");
-      allData.append("County", "India");
-      allData.append("State", "Gujarat");
-      allData.append("Pincode", pincode);
-      allData.append("MobileNo", mobileNo);
-      allData.append("Gender", gender);
-*/

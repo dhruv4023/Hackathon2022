@@ -17,6 +17,9 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
   const [Rationcard, setRationcard] = useState("");
   const [EleCard, setEleCard] = useState("");
   const [lcCerti, setLcCerti] = useState("");
+  const [FathersLc, setFathersLc] = useState("");
+  const [birthCerti, setBirthCerti] = useState("");
+  const [passportSizePic, setPassportSizePic] = useState("");
   const singleFileOptions = {
     onUploadProgress: (progressEvent) => {
       const { loaded, total } = progressEvent;
@@ -33,9 +36,12 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
     "Ration Card": setRationcard,
     "Election Card": setEleCard,
     "Leaving Certificate": setLcCerti,
+    "Birth Certificate": setBirthCerti,
+    "Father's Leaving Certificate": setFathersLc,
+    "Passport Size Photo": setPassportSizePic,
   };
   // console.log(uploadedDocArr, uploadedDocsObj);
-
+  // console.log(uploadedDocArr);
   const constraintOnFile = (file, LabelName) => {
     console.log(file.size);
     if (
@@ -54,11 +60,22 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
   };
   const handleFileupload = () => {
     const docsNm = Object.keys(lableSetArr);
-    const docs = [aadharCard, Rationcard, EleCard, lcCerti];
+    const docs = [
+      aadharCard,
+      Rationcard,
+      EleCard,
+      lcCerti,
+      birthCerti,
+      FathersLc,
+      passportSizePic,
+    ];
     if (constraintOnFile(aadharCard, "Aadhar Card")) {
     } else if (constraintOnFile(Rationcard, "Ration Card")) {
     } else if (constraintOnFile(EleCard, "Election Card")) {
     } else if (constraintOnFile(lcCerti, "Leaving Certificate")) {
+    } else if (constraintOnFile(birthCerti, "Birth Certificate")) {
+    } else if (constraintOnFile(FathersLc, "Father's Leaving Certificate")) {
+    } else if (constraintOnFile(passportSizePic, "Passport Size Photo")) {
     } else {
       for (let i = 0; i < docs.length; i++) {
         if (docs[i]) {

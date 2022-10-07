@@ -31,6 +31,9 @@ function FormFileFields({ adminUser, Sid, servN, currentUsersFormData }) {
     "Ration Card",
     "Election Card",
     "Leaving Certificate",
+    "Birth Certificate",
+    "Father's Leaving Certificate",
+    "Passport Size Photo",
   ];
   const toRemove = new Set(servN?.LabelDocs);
 
@@ -57,7 +60,13 @@ function FormFileFields({ adminUser, Sid, servN, currentUsersFormData }) {
           )}
         </div>
 
-        <SubDoc  Sid={Sid} adminUser={adminUser} servN={servN} currentUsersFormData={currentUsersFormData} fId={formId} />
+        <SubDoc
+          Sid={Sid}
+          adminUser={adminUser}
+          servN={servN}
+          currentUsersFormData={currentUsersFormData}
+          fId={formId}
+        />
       </div>
     </>
   );
