@@ -7,11 +7,11 @@ import img3 from "./img2.jpg";
 function SlidesHTml() {
   const imgs = [img2, img3, img1];
   const [imgNum, setImgNum] = useState(0);
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     setImgNum((imgNum) => (imgNum + 1) % 3);
-  //   }, 10000);
-  // }, []);
+  useEffect(() => {
+    setInterval(() => {
+      setImgNum((imgNum) => (imgNum + 1) % 3);
+    }, 5000);
+  }, []);
   const changeImage = (dir) => {
     setImgNum(Math.abs(imgNum + dir) % 3);
   };

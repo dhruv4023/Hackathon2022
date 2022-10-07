@@ -3,7 +3,7 @@
   box-shadow: 1px 1px 5px grey, -1px 1px 5px grey, 1px -1px 5px grey,
     -1px -1px 5px grey;
   border-radius: 0.2rem;
-padding: 0.2rem;
+  padding: 0.2rem;
 }
 .address_aboutus {
   margin: 0.2rem;
@@ -22,4 +22,23 @@ padding: 0.2rem;
 .data_aboutus {
   /* border: 1px solid; */
   width: calc(100% - 5rem);
+}
+
+.map-container {
+  overflow: hidden;
+  padding-bottom: 50.25%;
+  position: relative;
+  /* height:0; */
+}
+.map-container iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+@media (max-width: 1000px) {
+  .map-container {
+    height: 70vh;
+  }
 }

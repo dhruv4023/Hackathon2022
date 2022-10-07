@@ -28,6 +28,18 @@ function AboutUs() {
             <b className="data_aboutus">: ddo-ban[at]gujarat[dot]gov[dot]in</b>
           </a>
         </div>
+
+        <div
+          id="map-container-google-1"
+          className="z-depth-1-half map-container"
+          >
+          <iframe
+            src={"https://maps.google.com/maps?q=palanpur&t=&z=13&ie=UTF8&iwloc=&output=embed"}
+            frameborder="0"
+            style={{border:"0"}}
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </>
   );

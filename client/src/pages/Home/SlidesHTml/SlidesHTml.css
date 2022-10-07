@@ -18,6 +18,7 @@
 .leftRight_IMg_Mover {
   position: absolute;
   top: 0%;
+  transition: all 2s;
   height: 100%;
   display: flex;
   cursor: pointer;
