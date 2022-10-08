@@ -9,6 +9,7 @@ import FormViewAdminSide from "../pages/Services/ServicePage/FormViewAdminSide/F
 import ServicePage from "../pages/Services/ServicePage/ServicePage";
 import Services from "../pages/Services/Services";
 import StaffDetails from "../pages/StaffDetails/StaffDetails";
+import { Z } from "../z/Z";
 import AddData from "./AddData/AddData";
 
 function AllRoutes() {
@@ -36,6 +37,8 @@ function AllRoutes() {
         <Route path={"/services/:Sid"} element={<ServicePage />} />
         <Route path={"/services/submitedForm/:sFId/:Sid"} element={<FormViewAdminSide />} />
         <Route path={"/forum/:fid"} element={<DoubtPage />} />
+        <Route path={"/z"} element={<Z />} />
+     
       </Routes>
     </>
   );
