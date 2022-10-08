@@ -9,8 +9,6 @@ import { postSubmitForm } from "../../../../../actions/submitform";
 import { editService } from "../../../../../actions/service";
 function FieldList({ adminUser, Sid, currentUser, LableArray }) {
   const dispatch = useDispatch();
-  const [fName, setfName] = useState("");
-  const [lName, setlName] = useState("");
   const [sName, setsName] = useState("");
   const [dob, setDob] = useState("");
   const [fatherName, setFatherName] = useState("");
@@ -32,7 +30,7 @@ function FieldList({ adminUser, Sid, currentUser, LableArray }) {
         postSubmitForm({
           ServiceId: Sid,
           Uid: currentUser?._id,
-          Name: sName + " " + fName + " " + lName,
+          Name: sName,
           NameOfFather: fatherName,
           DOB: dob,
           AadharcardNo: aadharcardNo,
@@ -70,24 +68,11 @@ function FieldList({ adminUser, Sid, currentUser, LableArray }) {
             (x = LableArray?.includes("Name") && (
               <>
                 <InputField
-                  req={x}
-                  labelFld={"Name"}
-                  lableInput={"First Name"}
-                  setVal={setfName}
-                  handleDelLabel={handleDelLabel}
-                />
-                <InputField
-                  req={x}
-                  labelFld={"Name"}
-                  handleDelLabel={handleDelLabel}
-                  lableInput={"Last Name"}
-                  setVal={setlName}
-                />
-                <InputField
                   handleDelLabel={handleDelLabel}
                   req={x}
+                  tip={"Plezse Enter Name as per Your Aadharcard"}
                   labelFld={"Name"}
-                  lableInput={"SureName"}
+                  lableInput={"Name"}
                   setVal={setsName}
                 />
               </>
@@ -113,6 +98,7 @@ function FieldList({ adminUser, Sid, currentUser, LableArray }) {
             (x = LableArray?.includes("NameOfFather") && (
               <InputField
                 req={x}
+                tip={"Plezse Enter Your Father Name as per Your Aadharcard"}
                 handleDelLabel={handleDelLabel}
                 labelFld={"NameOfFather"}
                 lableInput={"Full Name of Father"}
@@ -167,6 +153,7 @@ function FieldList({ adminUser, Sid, currentUser, LableArray }) {
                   mxlen={12}
                   labelFld={"AadharcardNo"}
                   req={x}
+                  tip={"Enter 12 Digit Aadhar Number"}
                   mnlen={12}
                   setVal={setAadharcardNo}
                   handleDelLabel={handleDelLabel}
@@ -206,6 +193,7 @@ function FieldList({ adminUser, Sid, currentUser, LableArray }) {
                 {" "}
                 <InputField
                   req={x}
+                  tip={"Enter Your permanent Address"}
                   handleDelLabel={handleDelLabel}
                   labelFld={"Address"}
                   lableInput={"Address"}
@@ -224,6 +212,7 @@ function FieldList({ adminUser, Sid, currentUser, LableArray }) {
                   lableInput={"Mobile No"}
                   mnlen={10}
                   req={x}
+                  tip={"Enter 10 digit Mobile Number without Country Code"}
                   handleDelLabel={handleDelLabel}
                   labelFld={"MobileNo"}
                   mxlen={10}

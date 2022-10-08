@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { useDispatch } from "react-redux";
 import { editService } from "../../../../../actions/service";
-import { editSubmitForm } from "../../../../../actions/submitform";
+import { delSubDoc, editSubmitForm } from "../../../../../actions/submitform";
 import DocsView from "../../FormView/DocsView";
 import FileField from "./FileField";
 import "./FormFileFields.css";
@@ -109,6 +109,10 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
       })
     );
   };
+  const handleDel = (pathP) => {
+    dispatch(delSubDoc({ id: fId, pathP: pathP }, setUploading));
+  };
+  // console.log()
   return (
     <>
       <div>
@@ -131,6 +135,8 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
         <DocsView
           uploadedDocsObj={uploadedDocsObj}
           uploadedDocArr={uploadedDocArr}
+          adminUser={adminUser}
+          handleDel={handleDel}
         />
       </div>
       <div className="submitBtn_formSubmit">
@@ -148,9 +154,7 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
                     />
                   </>
                 ) : (
-                  <>
-                  
-                  </>
+                  <>Uploading...</>
                 )}
               </>
             ) : (
@@ -163,7 +167,9 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
                     <ImCheckboxChecked size={22} />
                   </b>
                 </b>
-                {currentUsersFormData?.status ? (
+                {currentUsersFormData?.docFilePic?.length ===
+                currentUsersFormData?.docFilePic?.filter((q) => q.status === 1)
+                  .length ? (
                   <b className="Status_subDoc">
                     <b style={{ margin: "0 auto", padding: "0.2rem" }}>
                       Verified
@@ -184,6 +190,32 @@ function SubDoc({ currentUsersFormData, adminUser, servN, fId, Sid }) {
                     </b>
                   </>
                 )}
+                <>
+                  {currentUsersFormData?.status ? (
+                    <>
+                      {" "}
+                      <b className="Status_subDoc">
+                        <b style={{ margin: "0 auto", padding: "0.2rem" }}>
+                          Verified  By Higher Authority
+                        </b>
+                        <b style={{ margin: "0 auto", padding: "0.2rem" }}>
+                          <ImCheckboxChecked size={22} />
+                        </b>
+                      </b>
+                    </>
+                  ) : (
+                    <>
+                      <b className="Status_subDoc">
+                        <b style={{ margin: "0 auto", padding: "0.2rem" }}>
+                          Pending to Verify By Higher Authority
+                        </b>
+                        <b style={{ margin: "0 auto", padding: "0.2rem" }}>
+                          <ImCheckboxUnchecked size={22} />
+                        </b>
+                      </b>
+                    </>
+                  )}
+                </>
               </>
             )}
           </>

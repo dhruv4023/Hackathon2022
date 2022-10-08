@@ -42,6 +42,7 @@ export const getAllStaffDetails = () => API.get('/staff/get');
 
 export const postSubmitForm = (SubmitFormData) => API.post(`/submitform/post`, SubmitFormData)
 export const editSubmitForm = (id,  fileData,singleFileOptions) => API.patch(`/submitform/edit/${id}`, fileData,singleFileOptions)
-export const updateFormStatus = (id) => API.patch(`/submitform/updateStatus/${id}`)
+export const updateFormStatus = (id,status,titleP) => API.patch(`/submitform/updateStatus/${id}`,{status,titleP})
+export const delSubDoc = (id,pathP) => API.patch(`/submitform/deldoc/${id}`, {pathP})
 export const getAllSubmitForm = () => API.get('/submitform/get');
 export const deleteSubmitForm = (id) => API.delete(`/submitform/delete/${id}`)

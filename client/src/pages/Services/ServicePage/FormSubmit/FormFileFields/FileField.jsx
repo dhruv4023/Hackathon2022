@@ -23,23 +23,28 @@ function FileField({
       </div>
       {uploading !== 0 ? (
         <>
-        <img src={spin} width={20} alt="Loading..." />
+          <img src={spin} width={20} alt="Loading..." />
         </>
       ) : (
         <>
           <div className="inputTag_FormSubmit">
             :
-            <input
-              type={"file"}
-              onChange={(e) => {
-                setFile_(e.target.files[0]);
-              }}
-              required
-              name={lableInput}
-              className="input_formSubmit"
-              placeholder={`Enter ${lableInput}`}
-              multiple
-            />
+            <div className="tooltip">
+              <input
+                type={"file"}
+                onChange={(e) => {
+                  setFile_(e.target.files[0]);
+                }}
+                required
+                name={lableInput}
+                className="input_formSubmit"
+                placeholder={`Enter ${lableInput}`}
+                multiple
+              />
+              <span class="tooltiptext">
+                {"Plz Upload .png or .jpeg Image Only"}
+              </span>
+            </div>
           </div>
         </>
       )}

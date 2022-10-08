@@ -21,6 +21,7 @@ const userSchema = mongoose.Schema({
     {
       titleP: String,
       pathP: String,
+      status: { type: Number, default: 0 },
     },
   ],
   ServicedOn: { type: Date, default: Date.now },

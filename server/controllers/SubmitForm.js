@@ -19,8 +19,8 @@ export const deleteSubmitForm = async (req, res) => {
   }
   try {
     const pth = await SubmitForm.findById(_id);
-    fs.unlinkSync(pth.picPath);
     await SubmitForm.findByIdAndRemove(_id);
+    fs.unlinkSync(pth.picPath);
     res.status(200).json({ message: "SubmitForm Successfully deleted ..." });
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -48,11 +48,7 @@ export const editSubmitForm = async (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(_id)) {
       return res.status(404).send("SubmitForm unavailable...");
     }
-    // console.log(_id);
     try {
-      // updateFormData("picTitle", title, _id, res);
-      // updateFormData("picName", req.file.filename, _id, res);
-      // updateFormData("picPath", req.file.path, _id, res);
       await SubmitForm.findByIdAndUpdate(_id, {
         $addToSet: { docFilePic: [{ titleP: title, pathP: req.file.path }] },
       });
@@ -64,23 +60,55 @@ export const editSubmitForm = async (req, res) => {
 };
 export const updateFormStatus = async (req, res) => {
   const { id: _id } = req.params;
-  // console.log(_id);
+  const { status, titleP } = req.body;
+  // console.log(_id, status, titleP);
+
   if (!mongoose.Types.ObjectId.isValid(_id)) {
     return res.status(404).send("SubmitForm unavailable...");
   }
   try {
-    const updateStatus = await SubmitForm.findByIdAndUpdate(_id, {
-      $set: { status: true },
-    });
+    if (status==="true") {
+      // console.log("_id")
+      const updateStatus = await SubmitForm.findByIdAndUpdate(_id, {
+        $set: { status: true },
+      });
+      res.status(200).json(updateStatus);
+    } else {
+      const updateStatus = await SubmitForm.updateOne(
+        {
+          _id: _id,
+          "docFilePic.titleP": titleP,
+        },
+        { $inc: { "docFilePic.$.status": status } }
+      );
+      res.status(200).json(updateStatus);
+    }
+  } catch (error) {
+    res.status(400).json("error");
+  }
+};
 
+export const delSubDoc = async (req, res) => {
+  const { id: _id } = req.params;
+  const { pathP } = req.body;
+  // console.log(_id,pathP);
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    return res.status(404).send("SubmitForm unavailable...");
+  }
+  try {
+    const updateStatus = await SubmitForm.updateOne(
+      {
+        _id: _id,
+      },
+      { $pull: { docFilePic: { pathP: pathP } } }
+    );
+    fs.unlinkSync(pathP);
     res.status(200).json(updateStatus);
   } catch (error) {
     res.status(400).json("error");
   }
 };
-// const updateFormData = async (arryNm, arrayData, _id, res) => {
-//   console.log(arryNm, arrayData);
-//   const updateForm = await SubmitForm.findByIdAndUpdate(_id, {
-//     $addToSet: { [arryNm]: arrayData },
-//   });
-// };
+
+// {
+//   $set: { "ReqDoc.$[filter]": serviceBody.data },
+// },

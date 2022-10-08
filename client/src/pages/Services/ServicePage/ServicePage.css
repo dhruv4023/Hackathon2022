@@ -12,6 +12,7 @@
   margin: auto 0;
   font-weight: bold;
 }
+
 .add_btn_servicePage {
   color: grey;
   margin: auto 0;
@@ -37,5 +38,10 @@
 }
 .InputField_cont_servicePage{
   display: flex;
-  /* border: 1px solid; */
+  position: relative;
+}
+@media(max-width:500px){
+  .heading_txt_servisesPage{
+    font-size: 1rem;
+  }
 }

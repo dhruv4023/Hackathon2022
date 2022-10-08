@@ -12,23 +12,44 @@ export const postSubmitForm = (submitformData) => async (dispatch) => {
   }
 };
 
-export const editSubmitForm = (submitformData,setUploading) => async (dispatch) => {
+export const editSubmitForm =
+  (submitformData, setUploading) => async (dispatch) => {
+    try {
+      const { id, fileData, singleFileOptions } = submitformData;
+      const { data } = await api.editSubmitForm(
+        id,
+        fileData,
+        singleFileOptions
+      );
+      dispatch({ type: "POST_SUBMITFORM", payload: data });
+      dispatch(getAllsubmitforms());
+    } catch (error) {
+      setUploading(0);
+      alert(error?.response?.data?.message);
+      console.log(error);
+    }
+  };
+
+export const delSubDoc = (delData,setUploading) => async (dispatch) => {
   try {
-    const { id, fileData, singleFileOptions } = submitformData;
-    const { data } = await api.editSubmitForm(id, fileData, singleFileOptions);
+    const { id,pathP } = delData;
+    console.log(pathP)
+    const { data } = await api.delSubDoc(id,pathP);
     dispatch({ type: "POST_SUBMITFORM", payload: data });
     dispatch(getAllsubmitforms());
+    setUploading(0)
   } catch (error) {
-    setUploading(0);
+    setUploading(0)
     alert(error?.response?.data?.message);
     console.log(error);
   }
 };
-export const updateFormStatus = (id) => async (dispatch) => {
+
+export const updateFormStatus = (statusData) => async (dispatch) => {
   try {
-    // const { id } = submitformData;
-    console.log(id)
-    const { data } = await api.updateFormStatus(id);
+    const { id, status, titleP } = statusData;
+    //  console.log(sts)
+    const { data } = await api.updateFormStatus(id, status, titleP);
     dispatch({ type: "POST_SUBMITFORM", payload: data });
     dispatch(getAllsubmitforms());
   } catch (error) {

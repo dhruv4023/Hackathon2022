@@ -1,0 +1,19 @@
+.wrongDoc_DocView {
+  margin: auto 0.51rem;
+  font-weight: 700;
+  font-size: medium;
+  cursor: pointer;
+}
+.wrongDoc_DocView:hover {
+  color: red;
+}
+.okDOc_DocView {
+  margin: auto 0.51rem;
+  cursor: pointer;
+}
+.okDOc_DocView:hover {
+  color: blue;
+}
+.view_subDoc_docView {
+  margin: auto 0.51rem;
+}

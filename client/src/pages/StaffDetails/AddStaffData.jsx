@@ -35,10 +35,10 @@ function AddStaffData({ setStaffAddData }) {
     } else {
       setUploading(true);
       const staffData = new FormData();
-      staffData.append("file", picFile);
       staffData.append("name", name);
       staffData.append("email", email);
       staffData.append("post", post);
+      staffData.append("file", picFile);
       dispatch(postStaff({ staffData, singleFileOptions }));
       setStaffAddData(false);
       setUploading(false);

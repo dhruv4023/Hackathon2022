@@ -34,6 +34,9 @@
 .searchIcon_Navbar {
   cursor: pointer;
   padding: 0.1rem;
+  position: absolute;
+  left: 2px;
+  top: 5px;
 }
 
 .searchBar_Navbar_Mobile {
@@ -54,7 +57,12 @@
   padding-left: 1%;
   width: 100%;
 }
-
+.clear_SeachBar{
+  position: absolute;
+  font-size: 1.5rem;
+  right: 31%;
+  cursor: pointer;
+}
 .Mobile {
   display: none;
 }

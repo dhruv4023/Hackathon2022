@@ -14,6 +14,7 @@ function InputField({
   req = false,
   handleDelLabel,
   labelFld,
+  tip = null,
 }) {
   const adminUser = useSelector((s) => s.authReducer)?.data;
 
@@ -29,21 +30,24 @@ function InputField({
       </div>
       <div className="inputTag_FormSubmit">
         :
-        <input
-          type={type}
-          onChange={(e) => {
-            setVal(e.target.value);
-          }}
-          required={req}
-          name={lableInput}
-          value={val}
-          maxLength={mxlen}
-          max={mx}
-          min={mn}
-          minLength={mnlen}
-          className="input_formSubmit"
-          placeholder={`Enter ${lableInput}`}
-        />
+        <div className="tooltip">
+          <input
+            type={type}
+            onChange={(e) => {
+              setVal(e.target.value);
+            }}
+            required={req}
+            name={lableInput}
+            value={val}
+            maxLength={mxlen}
+            max={mx}
+            min={mn}
+            minLength={mnlen}
+            className="input_formSubmit"
+            placeholder={`Enter ${lableInput}`}
+          />
+          {tip && <span class="tooltiptext">{tip}</span>}
+        </div>
       </div>
     </div>
   );

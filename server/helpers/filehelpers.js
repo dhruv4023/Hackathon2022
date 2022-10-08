@@ -13,12 +13,18 @@ const storage = multer.diskStorage({
     // console.log(req.file.title)
     // console.log(req.body)
     // console.log(file)
-    const filename =
-      String(req.body.title + "_" + req.body.id + "_").replace(" ", "_") +
-      String(file.originalname)
-        .replace(" " + "_")
-        .replace("-" + "_")
-        .replace("." + "_");
+    let filename = null;
+    if (req.body.id === undefined) {
+      filename =
+        String(req.body.email).replace("@", "_") + file.originalname;
+    } else {
+      filename =
+        String(req.body.title + "_" + req.body.id + "_").replace(" ", "_") +
+        String(file.originalname)
+          .replace(" " + "_")
+          .replace("-" + "_")
+          .replace("." + "_");
+    }
     cb(null, filename);
     // new Date().toISOString().replace(/:/g, "-") + "-" + file.originalname
   },

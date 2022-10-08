@@ -1,8 +1,7 @@
 import React from "react";
 import "./searchBar.css";
-import "./searchBar.css";
 import { ImSearch } from "react-icons/im";
-function SearchBar({searchQuery, setSearchQuery }) {
+function SearchBar({ searchQuery, setSearchQuery }) {
   return (
     <>
       <div className="search_div">
@@ -17,10 +16,15 @@ function SearchBar({searchQuery, setSearchQuery }) {
               // onClick={() => setSearchList(true)}
             />
             <ImSearch
-              size={30}
+              size={22}
               // onClick={(e) => setSearchList(false)}
               className="searchIcon_Navbar"
             />
+            {searchQuery && (
+              <b className="clear_SeachBar" onClick={() => setSearchQuery("")}>
+                X
+              </b>
+            )}
           </div>
         </div>
       </div>
