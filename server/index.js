@@ -42,7 +42,8 @@ app.listen(PORT, () => {
   console.log(`Server Running on the http://localhost:${PORT}`);
 });
 
-const DB_URL = process.env.CONNECTION_URL;
+// const DB_URL = process.env.CONNECTION_URL;
+const DB_URL = "mongodb://localhost:27017";
 mongoose
   .connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {

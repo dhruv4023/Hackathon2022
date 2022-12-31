@@ -98,14 +98,14 @@ export default function Navbar() {
                 </>
               )}
             </div>
-            <p
+            {/* <p
               onClick={logTmp}
               className="sign_in_Navbar"
               style={{ border: "2px solid" }}
             >
               <FcGoogle size={50} onClick={() => setBlurPage(true)} />
               ADMIN (temporary)
-            </p>
+            </p> */}
           </div>
           <div className="Navigation_List_Navbar">
             <NavLink to={"/"} className="Item_Navbar">
